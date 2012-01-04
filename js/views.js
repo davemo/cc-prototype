@@ -33,10 +33,30 @@
   CC.V.PieChart = Backbone.View.extend({
     className: "pie-chart",
     initialize: function() {
-      
-    },
-    render: function() {
-      
+      var self = this;
+      this.chart = new Highcharts.Chart({
+        chart: {
+          renderTo: self.el,
+        },
+        title: {
+          text: self.model.get("title")
+        },
+        plotOptions: {
+          pie: {
+            allowPointSelect: true,
+            cursor: 'pointer',
+            dataLabels: {
+              enabled: false
+            },
+            showInLegend: false
+          }
+        },
+        series: [{
+          type: 'pie',
+          name: self.model.get("title"),
+          data: self.model.get("data")
+        }]
+      });
     }
   });
   
