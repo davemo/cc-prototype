@@ -15,7 +15,20 @@
   });
   
   CC.V.SupervisorDashboard = CC.V.Page.extend({
-    template: $("#supervisor-dashboard-tpl").html()
+    template: $("#supervisor-dashboard-tpl").html(),
+    initialize: function() {
+      $(this.el).html(this.template);
+      CC.trigger("rendered");
+      this.pieGraphs(); 
+    },
+    
+    pieGraphs: function() {
+      var self = this;
+      _(Data.PieCharts).each(function(modelData) {
+        var v = new CC.V.PieChart({ model: new CC.M.ChartData(modelData) });
+        self.$(".pie-charts").append(v.render());
+      });
+    }
   });
   
   CC.V.ManagerDashboard = CC.V.Page.extend({
@@ -31,7 +44,7 @@
   });
   
   CC.V.PieChart = Backbone.View.extend({
-    className: "pie-chart",
+    className: "pie-chart span2",
     initialize: function() {
       var self = this;
       this.chart = new Highcharts.Chart({
@@ -57,6 +70,9 @@
           data: self.model.get("data")
         }]
       });
+    },
+    render: function() {
+      return this.el;
     }
   });
   
