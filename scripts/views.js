@@ -49,10 +49,20 @@
       var self = this;
       this.chart = new Highcharts.Chart({
         chart: {
-          renderTo: self.el,
+          renderTo: self.el
         },
+        colors: [
+          "#A9DBA9",   // achieved green
+          "#FFE38D",  // danger yello
+          "#F0B4AF"   // below red
+        ],
         title: {
           text: self.model.get("title")
+        },
+        tooltip: {
+          formatter: function() {
+            return this.percentage +' %';
+          }
         },
         plotOptions: {
           pie: {
@@ -61,9 +71,13 @@
             dataLabels: {
               enabled: false
             },
-            showInLegend: false
+            showInLegend: false,
+            events: {
+              click: self.modal
+            }
           }
         },
+        
         series: [{
           type: 'pie',
           name: self.model.get("title"),
@@ -73,6 +87,9 @@
     },
     render: function() {
       return this.el;
+    },
+    modal: function() {
+      alert('clicked modal');
     }
   });
   
