@@ -30,4 +30,14 @@
     }
   });
   
+  CC.V.PieChart = Backbone.View.extend({
+    className: "pie-chart",
+    initialize: function() {
+      
+    },
+    render: function() {
+      
+    }
+  });
+  
 })(jQuery);
