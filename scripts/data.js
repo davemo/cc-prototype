@@ -1,6 +1,64 @@
 (function() {
   
   Data = {
+    Briggs: {
+      FCR: {
+        title: "FCR",
+        data: [
+          ['Briggs', 79], // %
+          ['Team Agresta', 85]
+        ]
+      },
+      CPLH: {
+        title: "CPLH",
+        data: [
+          ['Briggs', 3.4], // count
+          ['Team Agresta', 7.1]
+        ]
+      },
+      AHT: {
+        title: "AHT", // time
+        data: [
+          ['Briggs', 420], // seconds
+          ['Team Agresta', 336]
+        ]
+      },
+      TLK: {
+        title: "TLK", // time
+        data: [
+          ['Briggs', 220], // seconds
+          ['Team Agresta', 240]
+        ]
+      },
+      ACW: {
+        title: "ACW", // time
+        data: [
+          ['Briggs', 90],
+          ['Team Agresta', 55]
+        ]
+      },
+      XFER: {
+        title: "XFER%", // %
+        data: [
+          ['Briggs', 15],
+          ['Team Agresta', 16]
+        ]
+      },
+      QA: {
+        title: "QA Score", // %
+        data: [
+          ['Briggs', 84],
+          ['Team Agresta', 89]
+        ]
+      },
+      ADH: {
+        title: "ADH", // %
+        data: [
+          ['Briggs', 80],
+          ['Team Agresta', 90]
+        ]
+      }
+    },
     PieCharts: {
       FCR: {
         title: "FCR",

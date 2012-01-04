@@ -11,7 +11,20 @@
   });
   
   CC.V.AgentDashboard = CC.V.Page.extend({
-    template: $("#agent-dashboard-tpl").html()
+    template: $("#agent-dashboard-tpl").html(),
+    initialize: function() {
+      $(this.el).html(this.template);
+      CC.trigger("rendered");
+      this.barGraphs();
+    },
+  
+    barGraphs: function() {
+      var self = this;
+      _(Data.Briggs).each(function(modelData) {
+        var v = new CC.V.BarChart({model: new CC.M.ChartData(modelData) });
+        self.$(".bar-charts").append(v.render());
+      });
+    }
   });
   
   CC.V.SupervisorDashboard = CC.V.Page.extend({
@@ -43,13 +56,53 @@
     }
   });
   
+  CC.V.BarChart = Backbone.View.extend({
+    className: "bar-chart span3",
+    initialize: function() {
+      var self = this;
+      this.chart = new Highcharts.Chart({
+        chart: {
+          renderTo: self.el,
+          defaultSeriesType: 'column'
+        },
+        colors: [
+          "#A9DBA9",   // achieved green
+          "#FFE38D",  // danger yello
+          "#F0B4AF"   // below red
+        ],
+        title: {
+          text: self.model.get("title")
+        },
+        tooltip: {
+          formatter: function() {
+            return this.percentage + '%';
+          }
+        },
+        plotOptions: {
+           column: {
+              pointPadding: 0.2,
+              borderWidth: 0,
+              showInLegend: false
+           },
+        },
+        series: [{
+          name: self.model.get("title"),
+          data: self.model.get("data")
+        }]
+      });
+    },
+    render: function() {
+      return this.el;
+    }
+  });
+  
   CC.V.PieChart = Backbone.View.extend({
     className: "pie-chart span2",
     initialize: function() {
       var self = this;
       this.chart = new Highcharts.Chart({
         chart: {
-          renderTo: self.el
+          renderTo: self.el,
         },
         colors: [
           "#A9DBA9",   // achieved green
