@@ -85,18 +85,23 @@
         }]
       });
     },
+    
     render: function() {
       return this.el;
     },
-    modal: function() {
-      new CC.V.CSRModal();
+    
+    modal: function(e) {
+      new CC.V.CSRModal({
+        className: e.point.name
+      });
     }
   });
   
   CC.V.CSRModal = Backbone.View.extend({
     el: "#csr-numbers-aggregate",
-    initialize: function() {
-      $(this.el).modal({'show':true, backdrop: true});
+    initialize: function(options) {
+      this.$(".dynamic").attr("class", "dynamic " + options.className.toLowerCase());
+      $(this.el).modal({show:true, backdrop: true});
     }
   });
   
