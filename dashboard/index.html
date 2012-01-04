@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <title>MyCallCenterApp</title>
   <link rel="stylesheet" type="text/css" href="../stylesheets/bootstrap.css" media="all" />
+  <link rel="stylesheet" type="text/css" href="../stylesheets/prettify.css" media="all" />
   <style type="text/css">
     body {
       padding-top: 60px;
@@ -11,7 +12,6 @@
   </style>
 </head>
 <body>
-  
   <div class="topbar">
     <div class="topbar-inner">
       <div class="container-fluid">
@@ -199,9 +199,19 @@
     <h2>Overview of CSRs</h2>
     <div class="row">
       <div class="span6 team-overview">
-        <h3>Team Overview</h3>
-        <div class="row pie-charts">
-          
+        <h3>Team Overview <small>(Team Agresta)</small></h3>
+        <div class="row pie-charts"></div>
+        <div class="filter">
+          <select id="filter-performance" class="pull-right">
+            <option value="today">Today (Dec 21, 2011)</option>
+            <option value="">Yesterday (Dec 20, 2011)</option>
+            <option value="">Last Week</option>
+            <option value="">December Week 1</option>
+            <option value="">December Week 2</option>
+            <option value="">December Week 3</option>
+            <option value="">December Week 4</option>
+          </select>
+          <label class="pull-right">Performance For:  &nbsp;&nbsp;</label>
         </div>
       </div>
       <div class="span10 performance-detail">
@@ -391,6 +401,65 @@
     </div>
   </script>
   
+  <div class="modal" id="csr-numbers-aggregate">
+    <div class="modal-header">
+      <a href="#" class="close">&times;</a>
+      <h3>CSR Performance Details</h3>
+    </div>
+    <div class="modal-body">
+      <table>
+        <thead>
+          <tr>
+            <th>CSR</th>
+            <th>FCR</th>
+            <th>CPLH</th>
+            <th>AHT</th>
+            <th>TLK</th>
+            <th>ACW</th>
+            <th>XFER%</th>
+            <th>QA Score</th>
+            <th>ADH</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Briggs</td>
+            <td class="below">88%</td>
+            <td class="achieved">7.27</td>
+            <td class="below">6:55</td>
+            <td class="achieved">3:49</td>
+            <td class="below">1:47</td>
+            <td class="danger">15.7%</td>
+            <td class="achieved">90%</td>
+            <td class="below">78%</td>
+          </tr>
+          <tr>
+            <td>Matthews</td>
+            <td class="below">88%</td>
+            <td class="achieved">7.30</td>
+            <td class="below">6:32</td>
+            <td class="achieved">4:12</td>
+            <td class="danger">1:31</td>
+            <td class="achieved">0%</td>
+            <td class="danger">88%</td>
+            <td class="below">85%</td>
+          </tr>
+          <tr>
+            <td>Brownlee</td>
+            <td class="below">88%</td>
+            <td class="danger">5.42</td>
+            <td class="danger">5:51</td>
+            <td class="achieved">3:51</td>
+            <td class="danger">1:31</td>
+            <td class="achieved">10%</td>
+            <td class="danger">88%</td>
+            <td class="achieved">94%</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  
   <!-- Libs -->
   <script type="text/javascript" src="../scripts/lib/jquery.js"></script>
   <script type="text/javascript" src="../scripts/lib/highcharts.js"></script>
@@ -399,6 +468,7 @@
   <script type="text/javascript" src="../scripts/lib/backbone.js"></script>
   <script type="text/javascript" src="../scripts/lib/handlebars.js"></script>
   
+  <script type="text/javascript" src="../scripts/lib/bootstrap-modal.js"></script>  
   <script type="text/javascript" src="../scripts/lib/bootstrap-dropdown.js"></script>
   <script type="text/javascript" src="../scripts/lib/bootstrap-tabs.js"></script>
   

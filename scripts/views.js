@@ -89,7 +89,14 @@
       return this.el;
     },
     modal: function() {
-      alert('clicked modal');
+      new CC.V.CSRModal();
+    }
+  });
+  
+  CC.V.CSRModal = Backbone.View.extend({
+    el: "#csr-numbers-aggregate",
+    initialize: function() {
+      $(this.el).modal({'show':true, backdrop: true});
     }
   });
   

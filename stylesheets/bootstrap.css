@@ -2410,3 +2410,9 @@ em {
 .pie-chart {
   height: 100px;
 }
+.filter {
+  margin-top: 10px;
+}
+.modal {
+  display: none;
+}
