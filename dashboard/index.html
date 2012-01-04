@@ -34,9 +34,9 @@
           <li class="dropdown">
             <a href="#exec" class="dropdown-toggle">Executive</a>
             <ul class="dropdown-menu">
-              <li><a href="#exec">Titan</a></li>
-              <li><a href="#exec">Power Sports</a></li>
-              <li><a href="#exec">Commercial</a></li>
+              <li><a href="#exec/titan">Titan</a></li>
+              <li><a href="#exec/powersports">Power Sports</a></li>
+              <li><a href="#exec/commercial">Commercial</a></li>
             </ul>
           </li>
         </ul>
@@ -54,12 +54,12 @@
   
   <!-- Templates -->
   <script id="agent-dashboard-tpl" type="text/html">
+    <h2>Brittney Briggs</h2>
     <div class="row profile">
       <div class="no-padding-well profile-photo span4">
         <img src="../img/briggs.jpg" alt="Brittney Briggs">
       </div>
       <div class="span12">
-        <h2>Brittney Briggs</h2>
         <table class="bordered-table">
           <thead>
             <tr>
@@ -117,7 +117,7 @@
           <li><a href="#rx">Rx</a></li>
         </ul>
       
-        <div id="my-tab-content" class="tab-content">
+        <div class="tab-content">
           <div class="tab-pane" id="goals">
             <table>
               <tbody>
@@ -200,49 +200,227 @@
     <div class="row">
       <div class="span6 team-overview">
         <h3>Team Overview</h3>
-        <div class="pie-widget">
-          <h4>FCR</h4>
-          <img src="http://placehold.it/75x75" alt="">
-        </div>
-        <div class="pie-widget">
-          <h4>CPLH</h4>
-          <img src="http://placehold.it/75x75" alt="">          
-        </div>
-        <div class="pie-widget">
-          <h4>AHT</h4>
-          <img src="http://placehold.it/75x75" alt="">          
-        </div>
-        <div class="pie-widget">
-          <h4>XFER%</h4>
-          <img src="http://placehold.it/75x75" alt="">          
-        </div>
-        <div class="pie-widget">
-          <h4>QA Score</h4>
-          <img src="http://placehold.it/75x75" alt="">          
-        </div>
-        <div class="pie-widget">
-          <h4>ADH</h4>
-          <img src="http://placehold.it/75x75" alt="">          
+        <div class="row">
+          <div class="span2">
+            <h4>FCR</h4>
+            <img src="http://placehold.it/75x75" alt="">
+          </div>
+          <div class="span2">
+            <h4>CPLH</h4>
+            <img src="http://placehold.it/75x75" alt="">          
+          </div>
+          <div class="span2">
+            <h4>AHT</h4>
+            <img src="http://placehold.it/75x75" alt="">          
+          </div>
+          <div class="span2">
+            <h4>XFER%</h4>
+            <img src="http://placehold.it/75x75" alt="">          
+          </div>
+          <div class="span2">
+            <h4>QA Score</h4>
+            <img src="http://placehold.it/75x75" alt="">          
+          </div>
+          <div class="span2">
+            <h4>ADH</h4>
+            <img src="http://placehold.it/75x75" alt="">          
+          </div>
         </div>
       </div>
       <div class="span10 performance-detail">
         <h3>Performance Detail</h3>
-        <img src="http://placehold.it/520x360" alt="">
+        <img src="http://placehold.it/580x360" alt="">
       </div>
     </div>
   </script>
   <script id="manager-dashboard-tpl" type="text/html">
     <h2>Site Overview</h2>
+    <div class="row">
+      <div class="span6 team-overview">
+        <h3>Team Overview</h3>
+        <div class="row">
+          <div class="span2">
+            <h4>FCR</h4>
+            <img src="http://placehold.it/75x75" alt="">
+          </div>
+          <div class="span2">
+            <h4>CPLH</h4>
+            <img src="http://placehold.it/75x75" alt="">          
+          </div>
+          <div class="span2">
+            <h4>AHT</h4>
+            <img src="http://placehold.it/75x75" alt="">          
+          </div>
+          <div class="span2">
+            <h4>XFER%</h4>
+            <img src="http://placehold.it/75x75" alt="">          
+          </div>
+          <div class="span2">
+            <h4>QA Score</h4>
+            <img src="http://placehold.it/75x75" alt="">          
+          </div>
+          <div class="span2">
+            <h4>ADH</h4>
+            <img src="http://placehold.it/75x75" alt="">          
+          </div>
+        </div>
+        <div class="service-level bumper">
+          <table>
+            <thead>
+              <tr>
+                <th colspan="4">Service Level</th>
+              </tr>
+              <tr>
+                <th></th>
+                <th>Previous Day</th>
+                <th>Week-to-Date</th>
+                <th>Month-to-Date</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Titan</td>
+                <td>80%</td>
+                <td>82%</td>
+                <td>85%</td>
+              </tr>
+              <tr>
+                <td>Power Sports</td>
+                <td>88%</td>
+                <td>80%</td>
+                <td>84%</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="span10 performance-detail">
+        <h3>Performance Detail</h3>
+        <img src="http://placehold.it/580x360" alt="">
+      </div>
+    </div>
   </script>
   <script id="exec-dashboard-tpl" type="text/html">
-    <h2>Exec Overview</h2>
+    <h2>Exec Overview {{ business }}</h2>
+    <ul class="tabs">
+      <li class="active"><a href="#gainsville">Gainsville</a></li>
+      <li><a href="#cleveland">Cleveland</a></li>
+      <li><a href="#desmoines">Des Moines</a></li>
+    </ul>
+  
+    <div class="tab-content">  
+      <div class="tab-pane active" id="gainsville">
+        <table>
+          <tbody>
+            <tr>
+              <td>Service Level</td>
+              <td class="achieved">85%</td>
+            </tr>
+            <tr>
+              <td>FCR</td>
+              <td class="danger">89%</td>
+            </tr>
+            <tr>
+              <td>CPLH</td>
+              <td class="achieved">7</td>
+            </tr>
+            <tr>
+              <td>AHT</td>
+              <td class="achieved">5</td>
+            </tr>
+            <tr>
+              <td>XFER%</td>
+              <td class="achieved">12%</td>
+            </tr>
+            <tr>
+              <td>QA Score</td>
+              <td class="danger">85%</td>
+            </tr>
+            <tr>
+              <td>ADH</td>
+              <td class="achieved">92%</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="tab-pane" id="cleveland">
+        <table>
+          <tbody>
+            <tr>
+              <td>Service Level</td>
+              <td class="achieved">80%</td>
+            </tr>
+            <tr>
+              <td>FCR</td>
+              <td class="achieved">90%</td>
+            </tr>
+            <tr>
+              <td>CPLH</td>
+              <td class="danger">6</td>
+            </tr>
+            <tr>
+              <td>AHT</td>
+              <td class="achieved">6</td>
+            </tr>
+            <tr>
+              <td>XFER%</td>
+              <td class="danger">14%</td>
+            </tr>
+            <tr>
+              <td>QA Score</td>
+              <td class="achieved">90%</td>
+            </tr>
+            <tr>
+              <td>ADH</td>
+              <td class="achieved">90%</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="tab-pane" id="desmoines">
+        <table>
+          <tbody>
+            <tr>
+              <td>Service Level</td>
+              <td class="below">70%</td>
+            </tr>
+            <tr>
+              <td>FCR</td>
+              <td class="danger">87%</td>
+            </tr>
+            <tr>
+              <td>CPLH</td>
+              <td class="achieved">7</td>
+            </tr>
+            <tr>
+              <td>AHT</td>
+              <td class="danger">7</td>
+            </tr>
+            <tr>
+              <td>XFER%</td>
+              <td class="achieved">12%</td>
+            </tr>
+            <tr>
+              <td>QA Score</td>
+              <td class="achieved">90%</td>
+            </tr>
+            <tr>
+              <td>ADH</td>
+              <td class="below">84%</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>            
+    </div>
   </script>
   
   <!-- Libs -->
   <script type="text/javascript" src="../js/lib/jquery.js"></script>
   <script type="text/javascript" src="../js/lib/highcharts.js"></script>
-  <script type="text/javascript" src="../js/lib/underscore.js"></script>  
+  <script type="text/javascript" src="../js/lib/underscore.js"></script>
+  <script type="text/javascript" src="../js/lib/underscore.string.min.js"></script>  
   <script type="text/javascript" src="../js/lib/backbone.js"></script>
+  <script type="text/javascript" src="../js/lib/handlebars.js"></script>
   
   <script type="text/javascript" src="../js/lib/bootstrap-dropdown.js"></script>
   <script type="text/javascript" src="../js/lib/bootstrap-tabs.js"></script>
@@ -253,10 +431,12 @@
   <script type="text/javascript" src="../js/router.js"></script>
   
   <script>
+    _.mixin(_.str.exports()); // mixin underscore string to underscore
     $(".topbar").dropdown();
-    $(".tabs").tabs();
     Backbone.history.start();
-    Backbone.history.navigate('agent', true);
+    if(!window.location.hash) {
+      Backbone.history.navigate('agent', true);      
+    }
   </script>
 </body>
 </html>

@@ -6,7 +6,8 @@
       'agent' : 'agent',
       'supervisor' : 'supervisor',
       'manager' : 'manager',
-      'exec' : 'exec'
+      'exec' : 'exec',
+      'exec/:business' : 'exec'
     },
     
     agent: function() {
@@ -21,8 +22,10 @@
       new CC.V.ManagerDashboard();
     },
     
-    exec: function() {
-      new CC.V.ExecDashboard();
+    exec: function(business) {
+      new CC.V.ExecDashboard({
+        business: business ? _.capitalize(business) : ""
+      });
     }
     
   }))();

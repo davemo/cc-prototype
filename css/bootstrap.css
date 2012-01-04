@@ -2404,7 +2404,6 @@ em {
 .danger {
   background-color: #ffe38d;
 }
-.pie-widget {
-  float: left;
-  margin-right: 20px;
+.bumper {
+  margin-top: 20px;
 }

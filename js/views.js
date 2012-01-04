@@ -6,6 +6,7 @@
     el: "#view",
     initialize: function() {
       $(this.el).html(this.template);
+      CC.trigger("rendered");
     }
   });
   
@@ -22,7 +23,11 @@
   });  
   
   CC.V.ExecDashboard = CC.V.Page.extend({
-    template: $("#exec-dashboard-tpl").html()
+    template: Handlebars.compile($("#exec-dashboard-tpl").html()),
+    initialize: function(options) {
+      $(this.el).html(this.template({ business: options.business }));
+      CC.trigger("rendered");
+    }
   });
   
 })(jQuery);
