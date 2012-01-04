@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>MyCallCenterApp</title>
-  <link rel="stylesheet" type="text/css" href="css/bootstrap.css" media="all" />
+  <link rel="stylesheet" type="text/css" href="../css/bootstrap.css" media="all" />
   <style type="text/css">
     body {
       padding-top: 60px;
@@ -46,9 +46,17 @@
   </div>
 
   <div class="container">
+    <div id="view"></div>
+    <footer>
+      <p>&copy; 2012</p>
+    </footer>
+  </div> <!-- /container -->
+  
+  <!-- Templates -->
+  <script id="agent-dashboard-tpl" type="text/html">
     <div class="row profile">
       <div class="no-padding-well profile-photo span4">
-        <img src="img/briggs.jpg" alt="Brittney Briggs">
+        <img src="../img/briggs.jpg" alt="Brittney Briggs">
       </div>
       <div class="span12">
         <h2>Brittney Briggs</h2>
@@ -108,7 +116,7 @@
           <li><a href="#opportunities">Opportunities</a></li>
           <li><a href="#rx">Rx</a></li>
         </ul>
-        
+      
         <div id="my-tab-content" class="tab-content">
           <div class="tab-pane" id="goals">
             <table>
@@ -174,7 +182,7 @@
           </div>
           <div class="tab-pane" id="rx">
             <p>Brittany has had consistently high QA scores.</p>
-            <p>She is working to improve her first call resolution (FCR) score so that customers don't need to call back to resolve issues that she is the first to handle.</p>
+            <p>She is working to improve her first call resolution (FCR) score so that customers dont need to call back to resolve issues that she is the first to handle.</p>
           </div>
           <div class="tab-pane active" id="info">
             <p><em>Hire Date:</em> 2/24/2010</p>
@@ -186,29 +194,27 @@
         </div>
       </div>
     </div>
-    
-    <footer>
-      <p>&copy; 2012</p>
-    </footer>
-
-  </div> <!-- /container -->
+  </script>
   
   <!-- Libs -->
-  <script type="text/javascript" src="js/lib/jquery.js"></script>
-  <script type="text/javascript" src="js/lib/highcharts.js"></script>
-  <script type="text/javascript" src="js/lib/underscore.js"></script>  
-  <script type="text/javascript" src="js/lib/backbone.js"></script>
+  <script type="text/javascript" src="../js/lib/jquery.js"></script>
+  <script type="text/javascript" src="../js/lib/highcharts.js"></script>
+  <script type="text/javascript" src="../js/lib/underscore.js"></script>  
+  <script type="text/javascript" src="../js/lib/backbone.js"></script>
   
-  <script type="text/javascript" src="js/lib/bootstrap-dropdown.js"></script>
-  <script type="text/javascript" src="js/lib/bootstrap-tabs.js"></script>
+  <script type="text/javascript" src="../js/lib/bootstrap-dropdown.js"></script>
+  <script type="text/javascript" src="../js/lib/bootstrap-tabs.js"></script>
   
   <!-- App --> 
-  <script type="text/javascript" src="js/app.js"></script>
-  <script type="text/javascript" src="js/router.js"></script>
+  <script type="text/javascript" src="../js/app.js"></script>
+  <script type="text/javascript" src="../js/views.js"></script>
+  <script type="text/javascript" src="../js/router.js"></script>
   
   <script>
     $(".topbar").dropdown();
     $(".tabs").tabs();
+    Backbone.history.start();
+    Backbone.history.navigate('agent', true);
   </script>
 </body>
 </html>
