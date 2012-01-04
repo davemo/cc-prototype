@@ -2404,3 +2404,7 @@ em {
 .danger {
   background-color: #ffe38d;
 }
+.pie-widget {
+  float: left;
+  margin-right: 20px;
+}
