@@ -19,24 +19,24 @@
         <ul class="nav">
           <li class="active"><a href="#agent">Agent</a></li>
           <li class="dropdown">
-            <a href="#" class="dropdown-toggle">Supervisor</a>
+            <a href="#supervisor" class="dropdown-toggle">Supervisor</a>
             <ul class="dropdown-menu">
-              <li><a href="#">CSR Overview</a></li>
+              <li><a href="#supervisor">CSR Overview</a></li>
               <li><a href="#">Prescriptions</a></li>
             </ul>
           </li>
           <li class="dropdown">
             <a href="#manager" class="dropdown-toggle">Manager</a>
             <ul class="dropdown-menu">
-              <li><a href="#site-overview">Site Overview</a></li>
+              <li><a href="#manager">Site Overview</a></li>
             </ul>
           </li>
           <li class="dropdown">
-            <a href="#" class="dropdown-toggle">Executive</a>
+            <a href="#exec" class="dropdown-toggle">Executive</a>
             <ul class="dropdown-menu">
-              <li><a href="#">Titan</a></li>
-              <li><a href="#">Power Sports</a></li>
-              <li><a href="#">Commercial</a></li>
+              <li><a href="#exec">Titan</a></li>
+              <li><a href="#exec">Power Sports</a></li>
+              <li><a href="#exec">Commercial</a></li>
             </ul>
           </li>
         </ul>
@@ -194,6 +194,15 @@
         </div>
       </div>
     </div>
+  </script>
+  <script id="supervisor-dashboard-tpl" type="text/html">
+    <h2>Overview of CSRs</h2>
+  </script>
+  <script id="manager-dashboard-tpl" type="text/html">
+    <h2>Site Overview</h2>
+  </script>
+  <script id="exec-dashboard-tpl" type="text/html">
+    <h2>Exec Overview</h2>
   </script>
   
   <!-- Libs -->

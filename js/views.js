@@ -15,6 +15,14 @@
   
   CC.V.SupervisorDashboard = CC.V.Page.extend({
     template: $("#supervisor-dashboard-tpl").html()
+  });
+  
+  CC.V.ManagerDashboard = CC.V.Page.extend({
+    template: $("#manager-dashboard-tpl").html()
   });  
+  
+  CC.V.ExecDashboard = CC.V.Page.extend({
+    template: $("#exec-dashboard-tpl").html()
+  });
   
 })(jQuery);
