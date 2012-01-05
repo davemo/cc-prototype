@@ -14,6 +14,23 @@
     template: Handlebars.compile($("#csr-detail-tpl").html()),
     initialize: function() {
       $(this.el).html(this.template(this.model.toJSON()));
+      CC.trigger("rendered");
+      this.lineGraphs();
+    },
+    
+    lineGraphs: function() {
+      // fcr
+
+      // scorecard
+      this.$(".line-graphs").append(new CC.V.LineChart({
+        title: "Call Flow",
+        xAxis: { categories: ['Open', 'Discover', 'Solution', 'Resolution'] },
+        yAxis: { title: { text: '%' } },
+        series: [{ name: "Brittney Briggs", data: [15, 58, 54, 93]}, { name: "Ideal", data: [10, 20, 45, 95]}]
+      }).render());
+      // aht
+      
+      // applied speech analytics
     }
   });
   
@@ -92,6 +109,27 @@
       $(this.el).html(this.template({ business: options.business }));
       CC.trigger("rendered");
     }
+  });
+  
+  CC.V.LineChart = Backbone.View.extend({
+    className: "line-chart span6",
+    initialize: function(options) {
+      var self = this;
+      this.chart = new Highcharts.Chart({
+        chart: {
+          renderTo: self.el
+        },
+        xAxis: options.xAxis,
+        yAxis: options.yAxis,
+        title: {
+          text: options.title,
+        },
+        series: options.series
+      });
+    },
+    render: function() {
+      return this.el;
+    } 
   });
   
   CC.V.BarChart = Backbone.View.extend({
