@@ -1011,7 +1011,97 @@
     </table>
   </script>
   <script id="team-detail-tpl" type="text/html">
-    <h2>My Team</h2>
+    <h2>Team Detail <small>(Team Agresta)</small>
+      <div class="filters pull-right">
+      <select id="filter-performance">
+        <option value="today">Today (Dec 21, 2011)</option>
+        <option value="">Yesterday (Dec 20, 2011)</option>
+        <option value="">Last Week</option>
+        <option value="">December Week 1</option>
+        <option value="">December Week 2</option>
+        <option value="">December Week 3</option>
+        <option value="">December Week 4</option>
+      </select>
+      </div>
+    </h2>
+    <table>
+      <thead>
+        <tr>
+          <th>CSR</th>
+          <th>FCR</th>
+          <th>CSAT</th>
+          <th>QA Score</th>
+          <th>AHT</th>
+          <th>TLK</th>
+          <th>ACW</th>
+          <th>XFER%</th>
+          <th>CPLH</th>
+          <th>ADH</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Brittney Briggs</td>
+          <td class="below">88%</td>
+          <td class="achieved">95%</td>
+          <td class="achieved">90%</td>
+          <td class="below">6:55</td>
+          <td class="achieved">3:49</td>
+          <td class="below">1:47</td>
+          <td class="danger">15.7</td>
+          <td class="achieved">7.27</td>
+          <td class="below">78%</td>
+        </tr>
+        <tr>
+          <td>Harold Matthews</td>
+          <td class="below">88%</td>
+          <td class="below">70%</td>
+          <td class="achieved">90%</td>
+          <td class="below">6:55</td>
+          <td class="achieved">3:49</td>
+          <td class="danger">2:47</td>
+          <td class="danger">15.7</td>
+          <td class="danger">3.27</td>
+          <td class="below">78%</td>
+        </tr>
+        <tr>
+          <td>Jenai Brownlee</td>
+          <td class="below">88%</td>
+          <td class="achieved">95%</td>
+          <td class="achieved">90%</td>
+          <td class="below">6:55</td>
+          <td class="below">3:49</td>
+          <td class="below">1:47</td>
+          <td class="danger">15.7</td>
+          <td class="danger">7.27</td>
+          <td class="achieved">90%</td>
+        </tr>
+        <tr>
+          <td>James Martin</td>
+          <td class="achieved">90%</td>
+          <td class="danger">82%</td>
+          <td class="below">77%</td>
+          <td class="below">6:55</td>
+          <td class="achieved">3:49</td>
+          <td class="below">1:47</td>
+          <td class="achieved">3.7</td>
+          <td class="achieved">7.27</td>
+          <td class="below">78%</td>
+        </tr>
+        <tr>
+          <td>David Mosher</td>
+          <td class="below">88%</td>
+          <td class="achieved">95%</td>
+          <td class="achieved">90%</td>
+          <td class="achieved">6:55</td>
+          <td class="achieved">3:49</td>
+          <td class="achieved">1:47</td>
+          <td class="danger">15.7</td>
+          <td class="achieved">7.27</td>
+          <td class="achieved">78%</td>
+        </tr>
+      </tbody>
+    </table>
   </script>
   <div class="modal" id="csr-numbers-aggregate">
     <div class="modal-header">
@@ -1035,7 +1125,7 @@
         </thead>
         <tbody>
           <tr>
-            <td>Briggs</td>
+            <td><a href="#" class="detail-view">Briggs</a></td>
             <td class="dynamic">88%</td>
             <td class="achieved">7.27</td>
             <td class="below">6:55</td>
@@ -1046,7 +1136,7 @@
             <td class="below">78%</td>
           </tr>
           <tr>
-            <td>Matthews</td>
+            <td><a href="#" class="detail-view">Matthews</a></td>
             <td class="dynamic">88%</td>
             <td class="achieved">7.30</td>
             <td class="below">6:32</td>
@@ -1057,7 +1147,7 @@
             <td class="below">85%</td>
           </tr>
           <tr>
-            <td>Brownlee</td>
+            <td><a href="#" class="detail-view">Brownlee</a></td>
             <td class="dynamic">88%</td>
             <td class="danger">5.42</td>
             <td class="danger">5:51</td>
