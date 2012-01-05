@@ -5,6 +5,7 @@
     routes: {
       'agent' : 'agent',
       'supervisor' : 'supervisor',
+      'supervisor/csr-detail' : 'csrDetail',
       'manager' : 'manager',
       'exec' : 'exec',
       'exec/:business' : 'exec'
@@ -16,6 +17,10 @@
     
     supervisor: function() {
       new CC.V.SupervisorDashboard();
+    },
+    
+    csrDetail: function() {
+      new CC.V.CSRDetail({ model: new CC.M.Agent() });
     },
     
     manager: function() {

@@ -10,6 +10,13 @@
     }
   });
   
+  CC.V.CSRDetail = CC.V.Page.extend({
+    template: Handlebars.compile($("#csr-detail-tpl").html()),
+    initialize: function() {
+      $(this.el).html(this.template(this.model.toJSON()));
+    }
+  });
+  
   CC.V.AgentDashboard = CC.V.Page.extend({
     template: $("#agent-dashboard-tpl").html(),
     initialize: function() {

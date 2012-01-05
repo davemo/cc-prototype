@@ -14,6 +14,16 @@
     }
     
   });
+  
+  CC.M.Agent = Backbone.Model.extend({
+    defaults: {
+      name: "Brittney Briggs",
+      data: {
+        pie: Data.Piecharts,
+        bar: Data.Briggs
+      }
+    }
+  });
 
 
 })(jQuery);
