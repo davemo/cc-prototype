@@ -393,9 +393,109 @@
     </div>
   </script>
   <script id="csr-detail-tpl" type="text/html">
-    <h2>CSR Detail <small>(Brittney Briggs)</small></h2>
+    <h2>CSR Detail 
+      <div class="filters pull-right">
+        <select><option>Brittney Briggs</option></select>
+        <select id="filter-performance">
+          <option value="today">Today (Dec 21, 2011)</option>
+          <option value="">Yesterday (Dec 20, 2011)</option>
+          <option value="">Last Week</option>
+          <option value="">December Week 1</option>
+          <option value="">December Week 2</option>
+          <option value="">December Week 3</option>
+          <option value="">December Week 4</option>
+        </select>
+      </div>
+    </h2>
+    <table class="bordered-table">
+      <thead>
+        <tr>
+          <th>FCR</th>
+          <th>CPLH</th>
+          <th>AHT</th>
+          <th>TLK</th>
+          <th>ACW</th>
+          <th>XFER%</th>
+          <th>QA</th>
+          <th>ADH</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="below">88%</td>
+          <td class="achieved">7.27</td>
+          <td class="below">6:55</td>
+          <td class="achieved">3:49</td>
+          <td class="below">1:47</td>
+          <td class="danger">15.7</td>
+          <td class="achieved">90%</td>
+          <td class="below">78%</td>
+        </tr>
+      </tbody>
+    </table>
     <div class="row csr-detail">
-      
+      <div class="span10">
+        <div class="row">
+          <div class="span5">
+            <img src="http://placehold.it/280x280" alt="">
+          </div>
+          <div class="span5">
+            <img src="http://placehold.it/280x280" alt="">          
+          </div>
+        </div>
+        <div class="row">
+          <div class="span5">
+            <img src="http://placehold.it/280x280" alt="">          
+          </div>
+          <div class="span5">
+            <img src="http://placehold.it/280x280" alt="">          
+          </div>
+        </div>
+      </div>
+      <div class="span6">
+        <table>
+          <thead>
+            <tr>
+              <th>Indicator</th>
+              <th>% of calls</th>
+              <th>FCR</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Insufficient Funds</td>
+              <td>13%</td>
+              <td>75%</td>
+              <td><a href="#">Find Calls</a></td>
+            </tr>
+            <tr>
+              <td>Deductibles</td>
+              <td>12%</td>
+              <td>83%</td>
+              <td><a href="#">Find Calls</a></td>
+            </tr>
+            <tr>
+              <td>Renewal</td>
+              <td>13%</td>
+              <td>67%</td>
+              <td><a href="#">Find Calls</a></td>
+            </tr>
+            <tr>
+              <td>EFT</td>
+              <td>10%</td>
+              <td>60%</td>
+              <td><a href="#">Find Calls</a></td>
+            </tr>
+            <tr>
+              <td colspan="4">
+                <a href="#" class="btn">View White Calls</a>
+                <a href="#" class="btn success">View Green Calls</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
   </script>
   <div class="modal" id="csr-numbers-aggregate">
