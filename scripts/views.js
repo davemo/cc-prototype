@@ -15,13 +15,13 @@
     initialize: function() {
       $(this.el).html(this.template);
       CC.trigger("rendered");
-      this.barGraphs();
+      this.barGraphs(Data.Briggs);
     },
   
-    barGraphs: function() {
+    barGraphs: function(data) {
       var self = this;
-      _(Data.Briggs).each(function(modelData) {
-        var v = new CC.V.BarChart({model: new CC.M.ChartData(modelData) });
+      _(data).each(function(modelData) {
+        var v = new CC.V.BarChart({model: new CC.M.ChartData(modelData), xAxis: { categories: [ 'Briggs vs Team' ] } });
         self.$(".bar-charts").append(v.render());
       });
     }
@@ -32,7 +32,16 @@
     initialize: function() {
       $(this.el).html(this.template);
       CC.trigger("rendered");
-      this.pieGraphs(); 
+      this.pieGraphs();
+      this.barGraphs(Data.Team);
+    },
+    
+    barGraphs: function(data) {
+      var self = this;
+      _(data).each(function(modelData) {
+        var v = new CC.V.BarChart({model: new CC.M.ChartData(modelData), xAxis: { categories: [ 'Goal vs Team' ] }});
+        self.$(".bar-charts").append(v.render());
+      });
     },
     
     pieGraphs: function() {
@@ -58,7 +67,7 @@
   
   CC.V.BarChart = Backbone.View.extend({
     className: "bar-chart span3",
-    initialize: function() {
+    initialize: function(options) {
       var self = this;
       var percentage = self.model.get("yAxis").title.text === '%';
       this.chart = new Highcharts.Chart({
@@ -68,25 +77,13 @@
         },
         colors: self.model.get("colors"),
         yAxis: self.model.get("yAxis"),
-        xAxis: {
-          categories: [
-            'Briggs vs Team' 
-          ]
-        },
+        xAxis: options.xAxis,
         title: {
           text: self.model.get("title")
         },
         tooltip: {
           formatter: function() {
-            var f = "";
-            if(percentage) {
-              f = this.series.name + ' ' + this.y + '%';
-            }
-            
-            if(time) {
-              f = this.series.name + ' ' + this.y / 
-            }
-             
+            return this.series.name + ' ' + this.y + (percentage ? '%' : "");
           }
         },
         plotOptions: {

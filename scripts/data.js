@@ -5,6 +5,136 @@
   var below    = "#F0B4AF"; // red
   
   Data = {
+    Team: {
+      FCR: {
+        title: "FCR",
+        yAxis: {
+          title: {
+            text: '%'
+          }
+        },
+        colors: [
+          achieved,
+          achieved
+        ],
+        data: [
+          {name: 'Goal', data: 80},
+          {name: 'Team Agresta', data: 90}
+        ]
+      },
+      CPLH: {
+        title: "CPLH",
+        yAxis: {
+          title: {
+            text: 'Count'
+          }
+        },
+        colors: [
+          achieved,
+          achieved
+        ],
+        data: [
+          {name: 'Goal', data: 7}, // count
+          {name: 'Team Agresta', data: 11.5}
+        ]
+      },
+      AHT: {
+        title: "AHT", // time,
+        yAxis: {
+          title: {
+            text: 'Seconds'
+          }
+        },
+        colors: [
+          achieved,
+          achieved
+        ],
+        data: [
+          {name:'Goal', data:315}, // seconds
+          {name:'Team Agresta', data:225}
+        ]
+      },
+      TLK: {
+        title: "TLK", // time
+        yAxis: {
+          title: {
+            text: 'Seconds'
+          }
+        },
+        colors: [
+          achieved,
+          achieved
+        ],
+        data: [
+          {name:'Goal', data: 270}, // seconds
+          {name:'Team Agresta', data: 180}
+        ]
+      },
+      ACW: {
+        title: "ACW", // time
+        yAxis: {
+          title: {
+            text: 'Seconds'
+          }
+        },
+        colors: [
+          achieved,
+          achieved
+        ],
+        data: [
+          {name:'Goal', data: 45},
+          {name:'Team Agresta', data: 30}
+        ]
+      },
+      XFER: {
+        title: "XFER%", // %
+        yAxis: {
+          title: {
+            text: '%'
+          }
+        },
+        colors: [
+          achieved,
+          achieved
+        ],
+        data: [
+          {name:'Goal', data:10},
+          {name:'Team Agresta', data:12}
+        ]
+      },
+      QA: {
+        title: "QA Score", // %
+        yAxis: {
+          title: {
+            text: '%'
+          }
+        },
+        colors: [
+          achieved,
+          achieved
+        ],
+        data: [
+          {name:'Goal', data:92},
+          {name:'Team Agresta', data:89}
+        ]
+      },
+      ADH: {
+        title: "ADH", // %
+        yAxis: {
+          title: {
+            text: '%'
+          }
+        },
+        colors: [
+          achieved,
+          achieved
+        ],
+        data: [
+          {name:'Goal', data:90},
+          {name:'Team Agresta', data:95}
+        ]
+      }
+    },
     Briggs: {
       FCR: {
         title: "FCR",
