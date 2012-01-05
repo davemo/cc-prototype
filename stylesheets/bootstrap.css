@@ -2393,13 +2393,13 @@ em {
   border-radius: 0px !important;
 }
 .below {
-  background-color: #f0b4af;
+  background-color: #f0b4af !important;
 }
 .achieved {
-  background-color: #a9dba9;
+  background-color: #a9dba9 !important;
 }
 .danger {
-  background-color: #ffe38d;
+  background-color: #ffe38d !important;
 }
 .bumper {
   margin-top: 20px;
