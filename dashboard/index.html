@@ -55,7 +55,19 @@
   
   <!-- Templates -->
   <script id="agent-dashboard-tpl" type="text/html">
-    <h2>Brittney Briggs</h2>
+    <h2>Brittney Briggs
+      <div class="filters pull-right">
+      <select id="filter-performance">
+        <option value="today">Today (Dec 21, 2011)</option>
+        <option value="">Yesterday (Dec 20, 2011)</option>
+        <option value="">Last Week</option>
+        <option value="">December Week 1</option>
+        <option value="">December Week 2</option>
+        <option value="">December Week 3</option>
+        <option value="">December Week 4</option>
+      </select>
+      </div>
+    </h2>
     <div class="row profile">
       <div class="no-padding-well profile-photo span4">
         <img src="../img/briggs.jpg" alt="Brittney Briggs">
@@ -84,20 +96,6 @@
               <td class="danger">15.7</td>
               <td class="achieved">90%</td>
               <td class="below">78%</td>
-            </tr>
-            <tr>
-              <td colspan="8">
-                <select id="filter-performance" class="pull-right">
-                  <option value="today">Today (Dec 21, 2011)</option>
-                  <option value="">Yesterday (Dec 20, 2011)</option>
-                  <option value="">Last Week</option>
-                  <option value="">December Week 1</option>
-                  <option value="">December Week 2</option>
-                  <option value="">December Week 3</option>
-                  <option value="">December Week 4</option>
-                </select>
-                <label class="pull-right">Performance For:  &nbsp;&nbsp;</label>
-              </td>
             </tr>
           </tbody>
         </table>
@@ -199,23 +197,24 @@
     </div>
   </script>
   <script id="supervisor-dashboard-tpl" type="text/html">
-    <h2>Overview of CSRs</h2>
+    <h2>Overview of CSRs <small>(Team Agresta)</small>
+      <div class="filters pull-right">
+        <select><option>Team Agresta</option></select>
+        <select id="filter-performance">
+          <option value="today">Today (Dec 21, 2011)</option>
+          <option value="">Yesterday (Dec 20, 2011)</option>
+          <option value="">Last Week</option>
+          <option value="">December Week 1</option>
+          <option value="">December Week 2</option>
+          <option value="">December Week 3</option>
+          <option value="">December Week 4</option>
+        </select>
+      </div>
+    </h2>
     <div class="row">
       <div class="span6 team-overview">
         <h3>Team Overview <small>(Team Agresta)</small></h3>
         <div class="row pie-charts"></div>
-        <div class="filter">
-          <select id="filter-performance" class="pull-right">
-            <option value="today">Today (Dec 21, 2011)</option>
-            <option value="">Yesterday (Dec 20, 2011)</option>
-            <option value="">Last Week</option>
-            <option value="">December Week 1</option>
-            <option value="">December Week 2</option>
-            <option value="">December Week 3</option>
-            <option value="">December Week 4</option>
-          </select>
-          <label class="pull-right">Performance For:  &nbsp;&nbsp;</label>
-        </div>
       </div>
       <div class="span10 performance-detail">
         <h3>Performance Detail <small>(Standard Goal vs Team Agresta)</small></h3>
@@ -226,23 +225,24 @@
     </div>
   </script>
   <script id="manager-dashboard-tpl" type="text/html">
-    <h2>Site Overview</h2>
+    <h2>Site Overview
+    <div class="filters pull-right">
+      <select><option>Team Agresta</option></select>
+      <select id="filter-performance">
+        <option value="today">Today (Dec 21, 2011)</option>
+        <option value="">Yesterday (Dec 20, 2011)</option>
+        <option value="">Last Week</option>
+        <option value="">December Week 1</option>
+        <option value="">December Week 2</option>
+        <option value="">December Week 3</option>
+        <option value="">December Week 4</option>
+      </select>
+    </div>
+    </h2>
     <div class="row">
       <div class="span6 team-overview">
         <h3>Team Overview <small>(Team Agresta)</small></h3>
         <div class="row pie-charts"></div>
-        <div class="filter">
-          <select id="filter-performance">
-            <option value="today">Today (Dec 21, 2011)</option>
-            <option value="">Yesterday (Dec 20, 2011)</option>
-            <option value="">Last Week</option>
-            <option value="">December Week 1</option>
-            <option value="">December Week 2</option>
-            <option value="">December Week 3</option>
-            <option value="">December Week 4</option>
-          </select>
-          <label>Performance For:  &nbsp;&nbsp;</label>
-        </div>
         <div class="service-level bumper">
           <h3>Service Level</h3>
           <table>
