@@ -54,7 +54,29 @@
   });
   
   CC.V.ManagerDashboard = CC.V.Page.extend({
-    template: $("#manager-dashboard-tpl").html()
+    template: $("#manager-dashboard-tpl").html(),
+    initialize: function() {
+      $(this.el).html(this.template);
+      CC.trigger("rendered");
+      this.pieGraphs();
+      this.barGraphs(Data.Team);
+    },
+    
+    barGraphs: function(data) {
+      var self = this;
+      _(data).each(function(modelData) {
+        var v = new CC.V.BarChart({model: new CC.M.ChartData(modelData), xAxis: { categories: [ 'Goal vs Team' ] }});
+        self.$(".bar-charts").append(v.render());
+      });
+    },
+    
+    pieGraphs: function() {
+      var self = this;
+      _(Data.PieCharts).each(function(modelData) {
+        var v = new CC.V.PieChart({ model: new CC.M.ChartData(modelData) });
+        self.$(".pie-charts").append(v.render());
+      });
+    }
   });  
   
   CC.V.ExecDashboard = CC.V.Page.extend({

@@ -217,7 +217,7 @@
         </div>
       </div>
       <div class="span10 performance-detail">
-        <h3>Performance Detail</h3>
+        <h3>Performance Detail <small>(Standard Goal vs Team Agresta)</small></h3>
         <div class="row">
           <div class="bar-charts"></div>
         </div>
@@ -228,39 +228,24 @@
     <h2>Site Overview</h2>
     <div class="row">
       <div class="span6 team-overview">
-        <h3>Team Overview</h3>
-        <div class="row">
-          <div class="span2">
-            <h4>FCR</h4>
-            <img src="http://placehold.it/75x75" alt="">
-          </div>
-          <div class="span2">
-            <h4>CPLH</h4>
-            <img src="http://placehold.it/75x75" alt="">          
-          </div>
-          <div class="span2">
-            <h4>AHT</h4>
-            <img src="http://placehold.it/75x75" alt="">          
-          </div>
-          <div class="span2">
-            <h4>XFER%</h4>
-            <img src="http://placehold.it/75x75" alt="">          
-          </div>
-          <div class="span2">
-            <h4>QA Score</h4>
-            <img src="http://placehold.it/75x75" alt="">          
-          </div>
-          <div class="span2">
-            <h4>ADH</h4>
-            <img src="http://placehold.it/75x75" alt="">          
-          </div>
+        <h3>Team Overview <small>(Team Agresta)</small></h3>
+        <div class="row pie-charts"></div>
+        <div class="filter">
+          <select id="filter-performance">
+            <option value="today">Today (Dec 21, 2011)</option>
+            <option value="">Yesterday (Dec 20, 2011)</option>
+            <option value="">Last Week</option>
+            <option value="">December Week 1</option>
+            <option value="">December Week 2</option>
+            <option value="">December Week 3</option>
+            <option value="">December Week 4</option>
+          </select>
+          <label>Performance For:  &nbsp;&nbsp;</label>
         </div>
         <div class="service-level bumper">
+          <h3>Service Level</h3>
           <table>
             <thead>
-              <tr>
-                <th colspan="4">Service Level</th>
-              </tr>
               <tr>
                 <th></th>
                 <th>Previous Day</th>
@@ -286,8 +271,10 @@
         </div>
       </div>
       <div class="span10 performance-detail">
-        <h3>Performance Detail</h3>
-        <img src="http://placehold.it/580x360" alt="">
+        <h3>Performance Detail <small>(Standard Goal vs Team Agresta)</small></h3>
+        <div class="row">
+          <div class="bar-charts"></div>
+        </div>
       </div>
     </div>
   </script>
