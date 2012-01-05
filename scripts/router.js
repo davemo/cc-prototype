@@ -46,7 +46,7 @@
     
     supervisorList: function() {
       new CC.V.SupervisorList();
-      CC.trigger("navigated", "supervisor");      
+      CC.trigger("navigated", "manager");      
     },
     
     exec: function(business) {
