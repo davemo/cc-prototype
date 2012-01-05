@@ -38,52 +38,20 @@
           {name: 'Team Agresta', data: 11.5}
         ]
       },
-      AHT: {
-        title: "AHT", // time,
+      CSAT: {
+        title: "CSAT", // %
         yAxis: {
           title: {
-            text: 'Seconds'
+            text: '%'
           }
         },
         colors: [
-          achieved,
+          below,
           achieved
         ],
         data: [
-          {name:'Goal', data:315}, // seconds
-          {name:'Team Agresta', data:225}
-        ]
-      },
-      TLK: {
-        title: "TLK", // time
-        yAxis: {
-          title: {
-            text: 'Seconds'
-          }
-        },
-        colors: [
-          achieved,
-          achieved
-        ],
-        data: [
-          {name:'Goal', data: 270}, // seconds
-          {name:'Team Agresta', data: 180}
-        ]
-      },
-      ACW: {
-        title: "ACW", // time
-        yAxis: {
-          title: {
-            text: 'Seconds'
-          }
-        },
-        colors: [
-          achieved,
-          achieved
-        ],
-        data: [
-          {name:'Goal', data: 45},
-          {name:'Team Agresta', data: 30}
+          {name:'Briggs', data:20},
+          {name:'Team Agresta', data:73}
         ]
       },
       XFER: {
@@ -133,6 +101,54 @@
           {name:'Goal', data:90},
           {name:'Team Agresta', data:95}
         ]
+      },
+      AHT: {
+        title: "AHT", // time,
+        yAxis: {
+          title: {
+            text: 'Seconds'
+          }
+        },
+        colors: [
+          achieved,
+          achieved
+        ],
+        data: [
+          {name:'Goal', data:315}, // seconds
+          {name:'Team Agresta', data:225}
+        ]
+      },
+      TLK: {
+        title: "TLK", // time
+        yAxis: {
+          title: {
+            text: 'Seconds'
+          }
+        },
+        colors: [
+          achieved,
+          achieved
+        ],
+        data: [
+          {name:'Goal', data: 270}, // seconds
+          {name:'Team Agresta', data: 180}
+        ]
+      },
+      ACW: {
+        title: "ACW", // time
+        yAxis: {
+          title: {
+            text: 'Seconds'
+          }
+        },
+        colors: [
+          achieved,
+          achieved
+        ],
+        data: [
+          {name:'Goal', data: 45},
+          {name:'Team Agresta', data: 30}
+        ]
       }
     },
     Briggs: {
@@ -168,43 +184,11 @@
           {name: 'Team Agresta', data: 7.1}
         ]
       },
-      AHT: {
-        title: "AHT", // time,
+      CSAT: {
+        title: "CSAT", // %
         yAxis: {
           title: {
-            text: 'Seconds'
-          }
-        },
-        colors: [
-          danger,
-          achieved
-        ],
-        data: [
-          {name:'Briggs', data:420}, // seconds
-          {name:'Team Agresta', data:336}
-        ]
-      },
-      TLK: {
-        title: "TLK", // time
-        yAxis: {
-          title: {
-            text: 'Seconds'
-          }
-        },
-        colors: [
-          achieved,
-          achieved
-        ],
-        data: [
-          {name:'Briggs', data: 220}, // seconds
-          {name:'Team Agresta', data: 240}
-        ]
-      },
-      ACW: {
-        title: "ACW", // time
-        yAxis: {
-          title: {
-            text: 'Seconds'
+            text: '%'
           }
         },
         colors: [
@@ -212,8 +196,8 @@
           achieved
         ],
         data: [
-          {name:'Briggs', data: 90},
-          {name:'Team Agresta', data: 55}
+          {name:'Briggs', data:20},
+          {name:'Team Agresta', data:73}
         ]
       },
       XFER: {
@@ -263,6 +247,54 @@
           {name:'Briggs', data:80},
           {name:'Team Agresta', data:90}
         ]
+      },
+      AHT: {
+        title: "AHT", // time,
+        yAxis: {
+          title: {
+            text: 'Seconds'
+          }
+        },
+        colors: [
+          danger,
+          achieved
+        ],
+        data: [
+          {name:'Briggs', data:420}, // seconds
+          {name:'Team Agresta', data:336}
+        ]
+      },
+      TLK: {
+        title: "TLK", // time
+        yAxis: {
+          title: {
+            text: 'Seconds'
+          }
+        },
+        colors: [
+          achieved,
+          achieved
+        ],
+        data: [
+          {name:'Briggs', data: 220}, // seconds
+          {name:'Team Agresta', data: 240}
+        ]
+      },
+      ACW: {
+        title: "ACW", // time
+        yAxis: {
+          title: {
+            text: 'Seconds'
+          }
+        },
+        colors: [
+          below,
+          achieved
+        ],
+        data: [
+          {name:'Briggs', data: 90},
+          {name:'Team Agresta', data: 55}
+        ]
       }
     },
     PieCharts: {
@@ -282,12 +314,12 @@
           ['Below', 0.33]
         ]
       },
-      AHT: {
-        title: "AHT",
+      CSAT: {
+        title: "CSAT",
         data: [
-          ['Achieved', 0.1],
-          ['Danger', 0.5],
-          ['Below', 0.4]
+          ['Achieved', 0.25],
+          ['Danger', 0.45],
+          ['Below', 0.30]
         ]
       },
       XFER: {
@@ -312,6 +344,30 @@
           ['Achieved', 0.25],
           ['Danger', 0.45],
           ['Below', 0.30]
+        ]
+      },
+      AHT: {
+        title: "AHT",
+        data: [
+          ['Achieved', 0.1],
+          ['Danger', 0.5],
+          ['Below', 0.4]
+        ]
+      },
+      TLK: {
+        title: "TLK",
+        data: [
+          ['Achieved', 0.15],
+          ['Danger', 0.35],
+          ['Below', 0.5]
+        ]
+      },
+      ACW: {
+        title: "ACW",
+        data: [
+          ['Achieved', 0.2],
+          ['Danger', 0.2],
+          ['Below', 0.6]
         ]
       }
     }
