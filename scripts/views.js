@@ -20,6 +20,26 @@
     
     lineGraphs: function() {
       // fcr
+      this.$(".line-graphs").append(new CC.V.LineChart({
+        title: "FCR",
+        xAxis: {
+           type: 'datetime',
+           title: {
+              text: null
+           }
+        },
+        yAxis: {
+           title: {
+              text: '%'
+           }
+        },
+        series: [{
+          name: "Brittney Briggs",
+          pointInterval: 24 * 3600 * 1000,
+          pointStart: Date.UTC(2011, 11, 01),
+          data: [85, 83, 80, 79, 80, 87, 100, 78, 81, 92, 81, 79]        
+        }]
+      }).render());
 
       // scorecard
       this.$(".line-graphs").append(new CC.V.LineChart({
@@ -28,9 +48,37 @@
         yAxis: { title: { text: '%' } },
         series: [{ name: "Brittney Briggs", data: [15, 58, 54, 93]}, { name: "Ideal", data: [10, 20, 45, 95]}]
       }).render());
+      
       // aht
+      this.$(".line-graphs").append(new CC.V.LineChart({
+        title: "AHT",
+        xAxis: {
+           type: 'datetime',
+           title: {
+              text: null
+           }
+        },
+        yAxis: {
+           title: {
+              text: 'Seconds'
+           }
+        },
+        series: [{
+          name: "Brittney Briggs",
+          pointInterval: 24 * 3600 * 1000,
+          pointStart: Date.UTC(2011, 11, 01),
+          data: [425, 409, 330, 500, 495, 415, 460, 1200, 400, 500, 515, 425]        
+        }]
+      }).render());
+      
       
       // applied speech analytics
+      this.$(".line-graphs").append(new CC.V.LineChart({
+        title: "Applied Speech Analytics",
+        xAxis: { categories: ['Day 1', 'Day 2', 'Day 3', 'Day 4', 'Day 5'] },
+        yAxis: { title: { text: '%' } },
+        series: [{ name: "Discovery", data: [20, 22, 49, 22, 20]}, { name: "FCR", data: [95, 90, 80, 90, 95]}]
+      }).render());
     }
   });
   
@@ -112,7 +160,7 @@
   });
   
   CC.V.LineChart = Backbone.View.extend({
-    className: "line-chart span6",
+    className: "line-chart span5",
     initialize: function(options) {
       var self = this;
       this.chart = new Highcharts.Chart({
