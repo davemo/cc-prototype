@@ -6,6 +6,7 @@
       'agent' : 'agent',
       'supervisor' : 'supervisor',
       'supervisor/csr-detail' : 'csrDetail',
+      'supervisor/team-detail' : 'teamDetail',      
       'manager' : 'manager',
       'manager/supervisors' : 'supervisorList',
       'exec' : 'exec',
@@ -20,16 +21,20 @@
       new CC.V.SupervisorDashboard();
     },
     
-    supervisorList: function() {
-      new CC.V.SupervisorList();
-    },
-    
     csrDetail: function() {
       new CC.V.CSRDetail({ model: new CC.M.Agent() });
     },
     
+    teamDetail: function() {
+      new CC.V.TeamDetail();
+    },
+    
     manager: function() {
       new CC.V.ManagerDashboard();
+    },
+    
+    supervisorList: function() {
+      new CC.V.SupervisorList();
     },
     
     exec: function(business) {
