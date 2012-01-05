@@ -75,9 +75,9 @@
       // applied speech analytics
       this.$(".line-graphs").append(new CC.V.LineChart({
         title: "Applied Speech Analytics",
-        xAxis: { categories: ['Day 1', 'Day 2', 'Day 3', 'Day 4', 'Day 5'] },
+        xAxis: { categories: ['G', 'E', 'D', 'A', 'A','C'] },
         yAxis: { title: { text: '%' } },
-        series: [{ name: "Discovery", data: [20, 22, 49, 22, 20]}, { name: "FCR", data: [95, 90, 80, 90, 95]}]
+        series: [{ name: "Discovery", data: [20, 22, 49, 49, 22, 20]}, { name: "FCR", data: [95, 90, 80, 80, 90, 95]}]
       }).render());
     }
   });
