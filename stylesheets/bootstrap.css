@@ -2401,6 +2401,9 @@ em {
 .danger {
   background-color: #ffe38d !important;
 }
+.achieved-t {
+  color: #a9dba9 !important;
+}
 .bumper {
   margin-top: 20px;
 }
