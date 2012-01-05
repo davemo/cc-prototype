@@ -60,22 +60,33 @@
     className: "bar-chart span3",
     initialize: function() {
       var self = this;
+      var percentage = self.model.get("yAxis").title.text === '%';
       this.chart = new Highcharts.Chart({
         chart: {
           renderTo: self.el,
           defaultSeriesType: 'column'
         },
-        colors: [
-          "#A9DBA9",   // achieved green
-          "#FFE38D",  // danger yello
-          "#F0B4AF"   // below red
-        ],
+        colors: self.model.get("colors"),
+        yAxis: self.model.get("yAxis"),
+        xAxis: {
+          categories: [
+            'Briggs vs Team' 
+          ]
+        },
         title: {
           text: self.model.get("title")
         },
         tooltip: {
           formatter: function() {
-            return this.percentage + '%';
+            var f = "";
+            if(percentage) {
+              f = this.series.name + ' ' + this.y + '%';
+            }
+            
+            if(time) {
+              f = this.series.name + ' ' + this.y / 
+            }
+             
           }
         },
         plotOptions: {
@@ -85,10 +96,7 @@
               showInLegend: false
            },
         },
-        series: [{
-          name: self.model.get("title"),
-          data: self.model.get("data")
-        }]
+        series: self.model.get("data")
       });
     },
     render: function() {
