@@ -30,6 +30,7 @@
             <a href="#manager" class="dropdown-toggle">Manager</a>
             <ul class="dropdown-menu">
               <li><a href="#manager">Site Overview</a></li>
+              <li><a href="#manager/supervisors">Supervisors</a></li>
             </ul>
           </li>
           <li class="dropdown">
@@ -120,7 +121,7 @@
       
         <div class="tab-content">
           <div class="tab-pane" id="goals">
-            <table>
+            <table class="zebra-striped">
               <tbody>
                 <tr>
                   <td>88%</td><td>FRC</td><td>First Call Resolution</td>
@@ -157,7 +158,7 @@
             <p><em>Potential net salary:</em>$750.00</p>
           </div>
           <div class="tab-pane" id="opportunities">
-            <table>
+            <table class="zebra-striped">
               <thead>
                 <tr>
                   <th>Indicator</th>
@@ -437,7 +438,7 @@
         </div>
       </div>
       <div class="span6">
-        <table>
+        <table class="zebra-striped">
           <thead>
             <tr>
               <th>Indicator</th>
@@ -481,6 +482,159 @@
         </table>
       </div>
     </div>
+  </script>
+  <script id="supervisor-list-tpl" type="text/html">
+    <h2>Supervisors
+      <div class="filters pull-right">
+      <select id="filter-performance">
+        <option value="today">Today (Dec 21, 2011)</option>
+        <option value="">Yesterday (Dec 20, 2011)</option>
+        <option value="">Last Week</option>
+        <option value="">December Week 1</option>
+        <option value="">December Week 2</option>
+        <option value="">December Week 3</option>
+        <option value="">December Week 4</option>
+      </select>
+      </div>
+    </h2>
+    <table class="zebra-striped">
+      <thead>
+        <tr>
+          <th>Team</th>
+          <th>Supervisor</th>
+          <th>Current Week</th>
+          <th>Initial RX Completed (Y/N)</th>
+          <th>Follow Up 1</th>
+          <th>Follow Up 2</th>
+          <th>Follow Up 3</th>
+          <th>Follow Up 4</th>
+          <th>Follow Up 5</th>
+          <th>Notes</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Team 1</td>
+          <td>Agresta, Susan</td>
+          <td><a href="#">Show Rx</a></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Team 2</td>
+          <td>Brownlee, Aubri</td>
+          <td><a href="#">Show Rx</a></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Team 3</td>
+          <td>Shaw, Cathrine</td>
+          <td><a href="#">Show Rx</a></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Team 4</td>
+          <td>Cox-Romance, A</td>
+          <td><a href="#">Show Rx</a></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Team 5</td>
+          <td>Cross, Lakrisha</td>
+          <td><a href="#">Show Rx</a></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Team 6</td>
+          <td>Hoback, Tammy</td>
+          <td><a href="#">Show Rx</a></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Team 7</td>
+          <td>Houseworth, Chandra</td>
+          <td><a href="#">Show Rx</a></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Team 8</td>
+          <td>Mahaman, Laroya</td>
+          <td><a href="#">Show Rx</a></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Team 9</td>
+          <td>Matthews, Anne</td>
+          <td><a href="#">Show Rx</a></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Team 10</td>
+          <td>Miller, Joshua</td>
+          <td><a href="#">Show Rx</a></td>
+          <td>Y Completed Dec 19.</td>
+          <td>Yes</td>
+          <td>Yes</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td>Identified Xfer% as a team opportunity coached on 12/22</td>
+        </tr>
+      </tbody>
+    </table>
   </script>
   <div class="modal" id="csr-numbers-aggregate">
     <div class="modal-header">

@@ -7,6 +7,7 @@
       'supervisor' : 'supervisor',
       'supervisor/csr-detail' : 'csrDetail',
       'manager' : 'manager',
+      'manager/supervisors' : 'supervisorList',
       'exec' : 'exec',
       'exec/:business' : 'exec'
     },
@@ -17,6 +18,10 @@
     
     supervisor: function() {
       new CC.V.SupervisorDashboard();
+    },
+    
+    supervisorList: function() {
+      new CC.V.SupervisorList();
     },
     
     csrDetail: function() {

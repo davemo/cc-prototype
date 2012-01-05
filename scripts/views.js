@@ -151,6 +151,10 @@
     }
   });  
   
+  CC.V.SupervisorList = CC.V.Page.extend({
+    template: $("#supervisor-list-tpl").html()
+  });
+  
   CC.V.ExecDashboard = CC.V.Page.extend({
     template: Handlebars.compile($("#exec-dashboard-tpl").html()),
     initialize: function(options) {
