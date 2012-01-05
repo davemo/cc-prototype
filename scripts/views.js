@@ -14,6 +14,10 @@
     template: $("#team-detail-tpl").html()
   });
   
+  CC.V.ManagerTeamDetail = CC.V.Page.extend({
+    template: $("#team-detail-manager-tpl").html()
+  });
+  
   CC.V.CSRDetail = CC.V.Page.extend({
     template: Handlebars.compile($("#csr-detail-tpl").html()),
     initialize: function() {

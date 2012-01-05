@@ -32,6 +32,7 @@
             <ul class="dropdown-menu">
               <li><a href="#manager">Site Overview</a></li>
               <li><a href="#manager/supervisors">Supervisors</a></li>
+              <li><a href="#manager/team-detail">Team Detail</a></li>
             </ul>
           </li>
           <li class="dropdown">
@@ -631,6 +632,93 @@
           <td></td>
           <td></td>
           <td>Identified Xfer% as a team opportunity coached on 12/22</td>
+        </tr>
+      </tbody>
+    </table>
+  </script>
+  <script id="team-detail-manager-tpl" type="text/html">
+    <h2>Team Detail <small>(Manager)</small>
+      <div class="filters pull-right">
+      <select id="filter-performance">
+        <option>Dec 21, 2011</option>
+        <option>Dec 20, 2011</option>
+        <option>Dec 19, 2011</option>
+        <option>Dec 18, 2011</option>
+        <option>Dec 17, 2011</option>
+        <option>Dec 16, 2011</option>
+        <option>Dec 15, 2011</option>
+        <option>Dec 14, 2011</option>
+      </select>
+      </div>
+    </h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Supervisor</th>
+          <th>FCR</th>
+          <th>CSAT</th>
+          <th>QA Score</th>
+          <th>AHT</th>
+          <th>TLK</th>
+          <th>ACW</th>
+          <th>XFER%</th>
+          <th>CPLH</th>
+          <th>ADH</th>
+          <th>Coaching Success</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Geddy Lee</td>
+          <td class="below">88%</td>
+          <td class="achieved">95%</td>
+          <td class="achieved">90%</td>
+          <td class="below">6:55</td>
+          <td class="achieved">3:49</td>
+          <td class="below">1:47</td>
+          <td class="danger">15.7</td>
+          <td class="achieved">7.27</td>
+          <td class="below">78%</td>
+          <td class="achieved"><a href="#">85%</a></td>
+        </tr>
+        <tr>
+          <td>Axel Rose</td>
+          <td class="below">88%</td>
+          <td class="below">70%</td>
+          <td class="achieved">90%</td>
+          <td class="below">6:55</td>
+          <td class="achieved">3:49</td>
+          <td class="danger">2:47</td>
+          <td class="danger">15.7</td>
+          <td class="danger">3.27</td>
+          <td class="below">78%</td>
+          <td class="below"><a href="#">60%</a></td>          
+        </tr>
+        <tr>
+          <td>Jim Cuddy</td>
+          <td class="below">88%</td>
+          <td class="achieved">95%</td>
+          <td class="achieved">90%</td>
+          <td class="below">6:55</td>
+          <td class="below">3:49</td>
+          <td class="below">1:47</td>
+          <td class="danger">15.7</td>
+          <td class="danger">7.27</td>
+          <td class="achieved">90%</td>
+          <td class="achieved"><a href="#">90%</a></td>          
+        </tr>
+        <tr>
+          <td>Gordon Downie</td>
+          <td class="achieved">90%</td>
+          <td class="danger">82%</td>
+          <td class="below">77%</td>
+          <td class="below">6:55</td>
+          <td class="achieved">3:49</td>
+          <td class="below">1:47</td>
+          <td class="achieved">3.7</td>
+          <td class="achieved">7.27</td>
+          <td class="below">78%</td>
+          <td class="danger"><a href="#">80%</a></td>          
         </tr>
       </tbody>
     </table>

@@ -9,6 +9,7 @@
       'supervisor/team-detail' : 'teamDetail',      
       'manager' : 'manager',
       'manager/supervisors' : 'supervisorList',
+      'manager/team-detail' : 'managerTeamDetail',
       'exec' : 'exec',
       'exec/:business' : 'exec'
     },
@@ -27,6 +28,10 @@
     
     teamDetail: function() {
       new CC.V.TeamDetail();
+    },
+    
+    managerTeamDetail: function() {
+      new CC.V.ManagerTeamDetail();
     },
     
     manager: function() {
