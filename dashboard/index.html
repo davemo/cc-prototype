@@ -58,18 +58,7 @@
   <!-- Templates -->
   <script id="agent-dashboard-tpl" type="text/html">
     <h2>Brittney Briggs
-      <div class="filters pull-right">
-      <select id="filter-performance">
-        <option>Dec 21, 2011</option>
-        <option>Dec 20, 2011</option>
-        <option>Dec 19, 2011</option>
-        <option>Dec 18, 2011</option>
-        <option>Dec 17, 2011</option>
-        <option>Dec 16, 2011</option>
-        <option>Dec 15, 2011</option>
-        <option>Dec 14, 2011</option>
-      </select>
-      </div>
+      {{> filter}}
     </h2>
     <div class="row profile">
       <div class="no-padding-well profile-photo span4">
@@ -206,18 +195,7 @@
   </script>
   <script id="supervisor-dashboard-tpl" type="text/html">
     <h2>CSR Overview <small>(Team Agresta)</small>
-      <div class="filters pull-right">
-        <select id="filter-performance">
-          <option>Dec 21, 2011</option>
-          <option>Dec 20, 2011</option>
-          <option>Dec 19, 2011</option>
-          <option>Dec 18, 2011</option>
-          <option>Dec 17, 2011</option>
-          <option>Dec 16, 2011</option>
-          <option>Dec 15, 2011</option>
-          <option>Dec 14, 2011</option>
-        </select>
-      </div>
+      {{> filter}}
     </h2>
     <div class="row">
       <div class="span6 team-overview">
@@ -234,19 +212,7 @@
   </script>
   <script id="manager-dashboard-tpl" type="text/html">
     <h2>Site Overview
-    <div class="filters pull-right">
-      <select><option>Team Agresta</option></select>
-      <select id="filter-performance">
-        <option>Dec 21, 2011</option>
-        <option>Dec 20, 2011</option>
-        <option>Dec 19, 2011</option>
-        <option>Dec 18, 2011</option>
-        <option>Dec 17, 2011</option>
-        <option>Dec 16, 2011</option>
-        <option>Dec 15, 2011</option>
-        <option>Dec 14, 2011</option>
-      </select>
-    </div>
+      {{> team-filter}}
     </h2>
     <div class="row">
       <div class="span6 team-overview">
@@ -437,18 +403,7 @@
   </script>
   <script id="csr-detail-tpl" type="text/html">
     <h2>CSR Detail <small>(Brittney Briggs)</small>
-      <div class="filters pull-right">
-        <select id="filter-performance">
-          <option>Dec 21, 2011</option>
-          <option>Dec 20, 2011</option>
-          <option>Dec 19, 2011</option>
-          <option>Dec 18, 2011</option>
-          <option>Dec 17, 2011</option>
-          <option>Dec 16, 2011</option>
-          <option>Dec 15, 2011</option>
-          <option>Dec 14, 2011</option>                    
-        </select>
-      </div>
+      {{> filter}}
     </h2>
     
     <ul class="tabs">
@@ -522,18 +477,7 @@
   </script>
   <script id="supervisor-list-tpl" type="text/html">
     <h2>Supervisors
-      <div class="filters pull-right">
-      <select id="filter-performance">
-        <option>Dec 21, 2011</option>
-        <option>Dec 20, 2011</option>
-        <option>Dec 19, 2011</option>
-        <option>Dec 18, 2011</option>
-        <option>Dec 17, 2011</option>
-        <option>Dec 16, 2011</option>
-        <option>Dec 15, 2011</option>
-        <option>Dec 14, 2011</option>
-      </select>
-      </div>
+      {{> filter}}
     </h2>
     <table class="zebra-striped">
       <thead>
@@ -676,18 +620,7 @@
   </script>
   <script id="team-detail-manager-tpl" type="text/html">
     <h2>Team Detail <small>(Manager)</small>
-      <div class="filters pull-right">
-      <select id="filter-performance">
-        <option>Dec 21, 2011</option>
-        <option>Dec 20, 2011</option>
-        <option>Dec 19, 2011</option>
-        <option>Dec 18, 2011</option>
-        <option>Dec 17, 2011</option>
-        <option>Dec 16, 2011</option>
-        <option>Dec 15, 2011</option>
-        <option>Dec 14, 2011</option>
-      </select>
-      </div>
+      {{> filter}}
     </h2>
     <table>
       <thead>
@@ -763,18 +696,7 @@
   </script>
   <script id="team-detail-tpl" type="text/html">
     <h2>Team Detail <small>(Team Agresta)</small>
-      <div class="filters pull-right">
-      <select id="filter-performance">
-        <option>Dec 21, 2011</option>
-        <option>Dec 20, 2011</option>
-        <option>Dec 19, 2011</option>
-        <option>Dec 18, 2011</option>
-        <option>Dec 17, 2011</option>
-        <option>Dec 16, 2011</option>
-        <option>Dec 15, 2011</option>
-        <option>Dec 14, 2011</option>
-      </select>
-      </div>
+      {{> filter}}
     </h2>
     <table>
       <thead>
@@ -855,6 +777,36 @@
       </tbody>
     </table>
   </script>
+  <script id="team-filter-partial" type="text/javascript">
+    <div class="filters pull-right">
+      <select><option>Team Agresta</option></select>
+      <select id="filter-performance">
+        <option>Dec 21, 2011</option>
+        <option>Dec 20, 2011</option>
+        <option>Dec 19, 2011</option>
+        <option>Dec 18, 2011</option>
+        <option>Dec 17, 2011</option>
+        <option>Dec 16, 2011</option>
+        <option>Dec 15, 2011</option>
+        <option>Dec 14, 2011</option>
+      </select>
+    </div>
+  </script>
+  <script id="filter-partial" type="text/html">
+    <div class="filters pull-right">
+      <select id="filter-performance">
+        <option>Dec 21, 2011</option>
+        <option>Dec 20, 2011</option>
+        <option>Dec 19, 2011</option>
+        <option>Dec 18, 2011</option>
+        <option>Dec 17, 2011</option>
+        <option>Dec 16, 2011</option>
+        <option>Dec 15, 2011</option>
+        <option>Dec 14, 2011</option>
+      </select>
+    </div>
+  </script>
+  
   <div class="modal" id="csr-numbers-aggregate">
     <div class="modal-header">
       <a href="#" class="close">&times;</a>

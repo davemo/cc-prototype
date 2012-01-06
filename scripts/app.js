@@ -13,4 +13,7 @@
     $(".nav").find("." + navItem).addClass("active"); 
   });
   
+  Handlebars.registerPartial("filter", $("#filter-partial").html());
+  Handlebars.registerPartial("team-filter", $("#team-filter-partial").html());
+  
 })(jQuery);

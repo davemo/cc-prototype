@@ -5,17 +5,17 @@
   CC.V.Page = Backbone.View.extend({
     el: "#view",
     initialize: function() {
-      $(this.el).html(this.template);
+      $(this.el).html(this.template());
       CC.trigger("rendered");
     }
   });
   
   CC.V.TeamDetail = CC.V.Page.extend({
-    template: $("#team-detail-tpl").html()
+    template: Handlebars.compile($("#team-detail-tpl").html())
   });
   
   CC.V.ManagerTeamDetail = CC.V.Page.extend({
-    template: $("#team-detail-manager-tpl").html()
+    template: Handlebars.compile($("#team-detail-manager-tpl").html())
   });
   
   CC.V.CSRDetail = CC.V.Page.extend({
@@ -91,7 +91,7 @@
   });
   
   CC.V.AgentDashboard = CC.V.Page.extend({
-    template: $("#agent-dashboard-tpl").html(),
+    template: Handlebars.compile($("#agent-dashboard-tpl").html()),
     initialize: function() {
       $(this.el).html(this.template);
       CC.trigger("rendered");
@@ -108,7 +108,7 @@
   });
   
   CC.V.SupervisorDashboard = CC.V.Page.extend({
-    template: $("#supervisor-dashboard-tpl").html(),
+    template: Handlebars.compile($("#supervisor-dashboard-tpl").html()),
     initialize: function() {
       $(this.el).html(this.template);
       CC.trigger("rendered");
@@ -134,7 +134,7 @@
   });
   
   CC.V.ManagerDashboard = CC.V.Page.extend({
-    template: $("#manager-dashboard-tpl").html(),
+    template: Handlebars.compile($("#manager-dashboard-tpl").html()),
     initialize: function() {
       $(this.el).html(this.template);
       CC.trigger("rendered");
@@ -160,7 +160,7 @@
   });  
   
   CC.V.SupervisorList = CC.V.Page.extend({
-    template: $("#supervisor-list-tpl").html()
+    template: Handlebars.compile($("#supervisor-list-tpl").html())
   });
   
   CC.V.ExecDashboard = CC.V.Page.extend({
