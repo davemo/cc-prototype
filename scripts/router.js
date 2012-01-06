@@ -7,11 +7,14 @@
       'supervisor' : 'supervisor',
       'supervisor/csr-detail' : 'csrDetail',
       'supervisor/team-detail' : 'teamDetail',      
-      'supervisor/prescriptions' : 'sprescriptions',      
+      'supervisor/prescriptions' : 'sprescriptions',
+      'supervisor/analytics' : 'sanalytics',      
       'manager' : 'manager',
       'manager/team-detail' : 'managerTeamDetail',
       'manager/prescriptions' : 'mprescriptions',            
+      'manager/analytics' : 'manalytics',
       'exec' : 'exec',
+      'exec/analytics' : 'eanalytics',      
       'exec/:business' : 'exec'
     },
     
@@ -19,6 +22,19 @@
       new CC.V.AgentDashboard();
       CC.trigger("navigated", "agent");
     },
+    
+    sanalytics: function() {
+      new CC.V.Analytics();
+      CC.trigger("navigated", "supervisor");
+    },
+    manalytics: function() {
+      new CC.V.Analytics();
+      CC.trigger("navigated", "manager");
+    },
+    eanalytics: function() {
+      new CC.V.Analytics();
+      CC.trigger("navigated", "executive");
+    },        
     
     supervisor: function() {
       new CC.V.SupervisorDashboard();
