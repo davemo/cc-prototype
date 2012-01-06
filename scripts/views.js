@@ -272,6 +272,13 @@
     }
   });
   
+  CC.V.FindCallsModal = Backbone.View.extend({
+    el: "#find-calls-modal",
+    initialize: function() {
+      $(this.el).modal({show:true, backdrop: true});
+    }
+  });
+  
   CC.V.CSRModal = Backbone.View.extend({
     el: "#csr-numbers-aggregate",
     events: {
