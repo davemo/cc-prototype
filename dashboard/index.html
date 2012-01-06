@@ -24,6 +24,7 @@
               <li><a href="#supervisor">Team Overview</a></li>
               <li><a href="#supervisor/team-detail">Team Detail</a></li>
               <li><a href="#supervisor/csr-detail">CSR Detail</a></li>
+              <li><a href="#supervisor/prescriptions">Prescriptions</a></li>              
             </ul>
           </li>
           <li class="dropdown manager">
@@ -31,6 +32,7 @@
             <ul class="dropdown-menu">
               <li><a href="#manager">Site Overview</a></li>
               <li><a href="#manager/team-detail">Team Detail</a></li>
+              <li><a href="#manager/prescriptions">Prescriptions</a></li>                            
             </ul>
           </li>
           <li class="dropdown executive">
@@ -664,6 +666,63 @@
       </select>
     </div>
   </script>
+  <script id="prescriptions-tpl" type="text/html">
+    <h2>Prescriptions</h2>
+    <form action="">
+      <fieldset>
+        <div class="clearfix">
+          <label for="associate">Associate Name</label>
+          <div class="input">
+            <input class="xlarge" id="associate" size="30" type="text">
+          </div>
+        </div>
+        <div class="clearfix">
+          <label for="supervisor">Supervisor Name</label>
+          <div class="input">
+            <input type="text" size="30" id="supervisor" class="xlarge" />
+          </div>
+        </div>
+        <div class="clearfix">
+          <label for="date">Date</label>
+          <div class="input">
+            <input type="date" size="30" id="date" class="xlarge" />
+          </div>
+        </div>
+        <div class="clearfix">
+          <label for="doing-well">What are you doing well?</label>
+          <div class="input">
+            <textarea class="xxlarge" id="doing-well" rows="3"></textarea>
+            <span class="help-block">
+              Awesome things? All the things? Or just some things?
+            </span>
+          </div>
+        </div>
+        <div class="clearfix">
+          <label for="observed">Areas identified during observation</label>
+          <div class="input">
+            <textarea class="xxlarge" id="observed" rows="3"></textarea>
+            <span class="help-block">
+              Observable things go in here.
+            </span>
+          </div>
+        </div>
+        <div class="clearfix">
+          <label for="new-prescription">New Prescription</label>
+          <div class="input">
+            <textarea class="xxlarge" id="new-prescription" rows="3"></textarea>
+            <span class="help-block">
+              Ibuprofen? Acetominaphen?
+            </span>
+          </div>
+        </div>
+        <div class="actions">
+          <input type="submit" class="btn primary" value="Create">
+          <input type="submit" class="btn" value="Cancel">          
+        </div>
+      </fieldset>
+    </form>
+    
+  </script>
   
   <div class="modal" id="team-numbers-aggregate">
     <div class="modal-header">
@@ -738,8 +797,7 @@
         </tbody>
       </table>
     </div>
-  </div>
-  
+  </div>  
   <div class="modal" id="csr-numbers-aggregate">
     <div class="modal-header">
       <a href="#" class="close">&times;</a>
@@ -828,7 +886,7 @@
   <script type="text/javascript" src="../scripts/router.js"></script>
   
   <script>
-    _.mixin(_.str.exports()); // mixin underscore string to underscore
+    _.mixin(_.str.exports()); // mixin underscore.string to underscore
     $(".topbar").dropdown();
     Backbone.history.start();
     if(!window.location.hash) {

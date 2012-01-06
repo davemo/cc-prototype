@@ -10,6 +10,10 @@
     }
   });
   
+  CC.V.Prescriptions = CC.V.Page.extend({
+    template: Handlebars.compile($("#prescriptions-tpl").html())
+  });
+  
   CC.V.TeamDetail = CC.V.Page.extend({
     template: Handlebars.compile($("#team-detail-tpl").html())
   });

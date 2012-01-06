@@ -7,8 +7,10 @@
       'supervisor' : 'supervisor',
       'supervisor/csr-detail' : 'csrDetail',
       'supervisor/team-detail' : 'teamDetail',      
+      'supervisor/prescriptions' : 'sprescriptions',      
       'manager' : 'manager',
       'manager/team-detail' : 'managerTeamDetail',
+      'manager/prescriptions' : 'mprescriptions',            
       'exec' : 'exec',
       'exec/:business' : 'exec'
     },
@@ -21,6 +23,16 @@
     supervisor: function() {
       new CC.V.SupervisorDashboard();
       CC.trigger("navigated", "supervisor");
+    },
+    
+    sprescriptions: function() {
+      new CC.V.Prescriptions();
+      CC.trigger("navigated", "supervisor");
+    },
+    
+    mprescriptions: function() {
+      new CC.V.Prescriptions();
+      CC.trigger("navigated", "manager");
     },
     
     csrDetail: function() {
