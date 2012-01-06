@@ -8,7 +8,6 @@
       'supervisor/csr-detail' : 'csrDetail',
       'supervisor/team-detail' : 'teamDetail',      
       'manager' : 'manager',
-      'manager/supervisors' : 'supervisorList',
       'manager/team-detail' : 'managerTeamDetail',
       'exec' : 'exec',
       'exec/:business' : 'exec'
@@ -41,11 +40,6 @@
     
     manager: function() {
       new CC.V.ManagerDashboard();
-      CC.trigger("navigated", "manager");      
-    },
-    
-    supervisorList: function() {
-      new CC.V.SupervisorList();
       CC.trigger("navigated", "manager");      
     },
     

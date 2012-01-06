@@ -143,15 +143,11 @@
     pieGraphs: function() {
       var self = this;
       _(Data.PieCharts).each(function(modelData) {
-        var v = new CC.V.PieChart({ model: new CC.M.ChartData(modelData) });
+        var v = new CC.V.PieChart({ model: new CC.M.ChartData(modelData), modal: CC.V.TeamModal });
         self.$(".pie-charts").append(v.render());
       });
     }
   });  
-  
-  CC.V.SupervisorList = CC.V.Page.extend({
-    template: Handlebars.compile($("#supervisor-list-tpl").html())
-  });
   
   CC.V.ExecDashboard = CC.V.Page.extend({
     template: Handlebars.compile($("#exec-dashboard-tpl").html()),
@@ -220,7 +216,8 @@
   
   CC.V.PieChart = Backbone.View.extend({
     className: "pie-chart span2",
-    initialize: function() {
+    initialize: function(options) {
+      _.bindAll(this);
       var self = this;
       this.chart = new Highcharts.Chart({
         chart: {
@@ -266,7 +263,8 @@
     },
     
     modal: function(e) {
-      new CC.V.CSRModal({
+      var modalView = this.options.modal || CC.V.CSRModal;
+      new modalView({
         className: e.point.name
       });
     }
@@ -276,6 +274,20 @@
     el: "#find-calls-modal",
     initialize: function() {
       $(this.el).modal({show:true, backdrop: true});
+    }
+  });
+  
+  CC.V.TeamModal = Backbone.View.extend({
+    el: "#team-numbers-aggregate",
+    events: {
+      'click .detail-view' : 'jumpToTeamDetail'
+    },
+    initialize: function(options) {
+      $(this.el).modal({show:true, backdrop: true});
+    },
+    jumpToTeamDetail: function() {
+      $(this.el).modal("hide");
+      Backbone.history.navigate("manager/team-detail", true);
     }
   });
   

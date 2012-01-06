@@ -31,7 +31,6 @@
             <ul class="dropdown-menu">
               <li><a href="#manager">Site Overview</a></li>
               <li><a href="#manager/team-detail">Team Detail</a></li>
-              <li><a href="#manager/supervisors">Supervisor List</a></li>
             </ul>
           </li>
           <li class="dropdown executive">
@@ -214,7 +213,6 @@
     </h2>
     <div class="row">
       <div class="span6 team-overview">
-        <h3>Team Overview <small>(Team Agresta)</small></h3>
         <div class="row pie-charts"></div>
         <div class="service-level bumper">
           <h3>Service Level</h3>
@@ -244,8 +242,7 @@
           </table>
         </div>
       </div>
-      <div class="span10 performance-detail">
-        <h3>Performance Detail <small>(Standard Goal vs Team Agresta)</small></h3>
+      <div class="span9 offset1 performance-detail">
         <div class="row">
           <div class="bar-charts"></div>
         </div>
@@ -473,149 +470,6 @@
       </div>
     </div>
   </script>
-  <script id="supervisor-list-tpl" type="text/html">
-    <h2>Supervisors
-      {{> filter}}
-    </h2>
-    <table class="zebra-striped">
-      <thead>
-        <tr>
-          <th>Team</th>
-          <th>Supervisor</th>
-          <th>Current Week</th>
-          <th>Initial RX Completed (Y/N)</th>
-          <th>Follow Up 1</th>
-          <th>Follow Up 2</th>
-          <th>Follow Up 3</th>
-          <th>Follow Up 4</th>
-          <th>Follow Up 5</th>
-          <th>Notes</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Team 1</td>
-          <td>Agresta, Susan</td>
-          <td><a href="#">Show Rx</a></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>Team 2</td>
-          <td>Brownlee, Aubri</td>
-          <td><a href="#">Show Rx</a></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>Team 3</td>
-          <td>Shaw, Cathrine</td>
-          <td><a href="#">Show Rx</a></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>Team 4</td>
-          <td>Cox-Romance, A</td>
-          <td><a href="#">Show Rx</a></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>Team 5</td>
-          <td>Cross, Lakrisha</td>
-          <td><a href="#">Show Rx</a></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>Team 6</td>
-          <td>Hoback, Tammy</td>
-          <td><a href="#">Show Rx</a></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>Team 7</td>
-          <td>Houseworth, Chandra</td>
-          <td><a href="#">Show Rx</a></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>Team 8</td>
-          <td>Mahaman, Laroya</td>
-          <td><a href="#">Show Rx</a></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>Team 9</td>
-          <td>Matthews, Anne</td>
-          <td><a href="#">Show Rx</a></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>Team 10</td>
-          <td>Miller, Joshua</td>
-          <td><a href="#">Show Rx</a></td>
-          <td>Y Completed Dec 19.</td>
-          <td>Yes</td>
-          <td>Yes</td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td>Identified Xfer% as a team opportunity coached on 12/22</td>
-        </tr>
-      </tbody>
-    </table>
-  </script>
   <script id="team-detail-manager-tpl" type="text/html">
     <h2>Team Detail <small>(Manager)</small>
       {{> filter}}
@@ -783,10 +637,10 @@
   </script>
   <script id="team-filter-partial" type="text/javascript">
     <div class="filters pull-right">
-      <select><option>Team Agresta</option></select>
-      <input type="text" class="datepicker small" placeholder="From Date">
+      <select><option>All Teams</option><option>Team Agresta</option></select>
+      <input type="text" class="datepicker small" placeholder="From">
       <small>to</small>
-      <input type="text" class="datepicker small" placeholder="To Date">
+      <input type="text" class="datepicker small" placeholder="To">
       <small>or</small>
       <select id="filter-performance">
         <option>Yesterday</option>
@@ -798,9 +652,9 @@
   </script>
   <script id="filter-partial" type="text/html">
     <div class="filters pull-right">
-      <input type="text" class="datepicker small" placeholder="From Date">
+      <input type="text" class="datepicker small" placeholder="From">
       <small>to</small>
-      <input type="text" class="datepicker small" placeholder="To Date">
+      <input type="text" class="datepicker small" placeholder="To">
       <small>or</small>
       <select id="filter-performance">
         <option>Yesterday</option>      
@@ -810,6 +664,81 @@
       </select>
     </div>
   </script>
+  
+  <div class="modal" id="team-numbers-aggregate">
+    <div class="modal-header">
+      <a href="#" class="close">&times;</a>
+      <h3>Team Performance Details</h3>
+    </div>
+    <div class="modal-body">
+      <table>
+        <thead>
+          <tr>
+            <th>Supervisor</th>
+            <th>FCR</th>
+            <th>CPLH</th>
+            <th>AHT</th>
+            <th>TLK</th>
+            <th>ACW</th>
+            <th>XFER%</th>
+            <th>QA Score</th>
+            <th>ADH</th>
+            <th>Coaching Success (Last 30 Days)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><a href="#" class="detail-view">Geddy Lee</a></td>
+            <td class="dynamic">88%</td>
+            <td class="achieved">7.27</td>
+            <td class="below">6:55</td>
+            <td class="achieved">3:49</td>
+            <td class="below">1:47</td>
+            <td class="danger">15.7%</td>
+            <td class="achieved">90%</td>
+            <td class="below">78%</td>
+            <td class="below">75%</td>
+          </tr>
+          <tr>
+            <td><a href="#" class="detail-view">Axel Rose</a></td>
+            <td class="dynamic">88%</td>
+            <td class="achieved">7.30</td>
+            <td class="below">6:32</td>
+            <td class="achieved">4:12</td>
+            <td class="danger">1:31</td>
+            <td class="achieved">0%</td>
+            <td class="danger">88%</td>
+            <td class="achieved">94%</td>            
+            <td class="danger">80%</td>
+          </tr>
+          <tr>
+            <td><a href="#" class="detail-view">Jim Cuddy</a></td>
+            <td class="dynamic">88%</td>
+            <td class="danger">5.42</td>
+            <td class="danger">5:51</td>
+            <td class="achieved">3:51</td>
+            <td class="danger">1:31</td>
+            <td class="achieved">10%</td>
+            <td class="danger">88%</td>
+            <td class="achieved">94%</td>
+            <td class="achieved">95%</td>
+          </tr>
+          <tr>
+            <td><a href="#" class="detail-view">Gordon Downie</a></td>
+            <td class="dynamic">75%</td>
+            <td class="achieved">6.99</td>
+            <td class="danger">5:51</td>
+            <td class="achieved">3:51</td>
+            <td class="danger">1:31</td>
+            <td class="danger">2%</td>
+            <td class="danger">88%</td>
+            <td class="achieved">94%</td>
+            <td class="danger">82%</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
   
   <div class="modal" id="csr-numbers-aggregate">
     <div class="modal-header">
