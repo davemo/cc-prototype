@@ -27,8 +27,37 @@
     },
     
     lineGraphs: function() {
+      // applied speech analytics
+      this.$(".line-graphs").prepend(new CC.V.LineChart({
+        className: "line-chart span8",        
+        title: "Applied Speech Analytics",
+        yAxis: { title: { text: '%' } },
+        xAxis: {type: 'datetime', title: {text: null} },
+        series: [{
+          name: "Discovery", 
+          data: [17, 18, 19, 20, 21, 22, 49, 21, 20, 19, 18, 17],
+          pointInterval: 24 * 3600 * 1000,
+          pointStart: Date.UTC(2011, 11, 01)
+        }, {
+          name: "FCR", 
+          data: [95, 94, 93, 92, 91, 90, 80, 90, 91, 92, 93, 95],
+          pointInterval: 24 * 3600 * 1000,
+          pointStart: Date.UTC(2011, 11, 01)
+        }]
+      }).render());
+      
+      // scorecard
+      this.$(".line-graphs").prepend(new CC.V.LineChart({
+        className: "line-chart span8",
+        title: "Call Flow",
+        xAxis: { categories: ['G', 'E', 'D', 'A', 'A', 'C'] },
+        yAxis: { title: { text: '%' } },
+        series: [{ name: "Brittney Briggs", data: [15, 58, 54, 72, 64, 93]}, { name: "Ideal", data: [10, 20, 25, 35, 55, 95]}]
+      }).render());
+      
       // fcr
-      this.$(".line-graphs").append(new CC.V.LineChart({
+      this.$(".line-graphs").prepend(new CC.V.LineChart({
+        className: "line-chart span8",
         title: "FCR",
         xAxis: {
            type: 'datetime',
@@ -47,45 +76,6 @@
           pointStart: Date.UTC(2011, 11, 01),
           data: [85, 83, 80, 79, 80, 87, 100, 78, 81, 92, 81, 79]        
         }]
-      }).render());
-
-      // scorecard
-      this.$(".line-graphs").append(new CC.V.LineChart({
-        title: "Call Flow",
-        xAxis: { categories: ['Open', 'Discover', 'Solution', 'Resolution'] },
-        yAxis: { title: { text: '%' } },
-        series: [{ name: "Brittney Briggs", data: [15, 58, 54, 93]}, { name: "Ideal", data: [10, 20, 45, 95]}]
-      }).render());
-      
-      // aht
-      this.$(".line-graphs").append(new CC.V.LineChart({
-        title: "AHT",
-        xAxis: {
-           type: 'datetime',
-           title: {
-              text: null
-           }
-        },
-        yAxis: {
-           title: {
-              text: 'Seconds'
-           }
-        },
-        series: [{
-          name: "Brittney Briggs",
-          pointInterval: 24 * 3600 * 1000,
-          pointStart: Date.UTC(2011, 11, 01),
-          data: [425, 409, 330, 500, 495, 415, 460, 1200, 400, 500, 515, 425]        
-        }]
-      }).render());
-      
-      
-      // applied speech analytics
-      this.$(".line-graphs").append(new CC.V.LineChart({
-        title: "Applied Speech Analytics",
-        xAxis: { categories: ['G', 'E', 'D', 'A', 'A','C'] },
-        yAxis: { title: { text: '%' } },
-        series: [{ name: "Discovery", data: [20, 22, 49, 49, 22, 20]}, { name: "FCR", data: [95, 90, 80, 80, 90, 95]}]
       }).render());
     }
   });
