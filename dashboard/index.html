@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <title>MyCallCenterApp</title>
   <link rel="stylesheet" type="text/css" href="../stylesheets/bootstrap.css" media="all" />
-  <link rel="stylesheet" type="text/css" href="../stylesheets/prettify.css" media="all" />
+  <link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/ui-darkness/jquery-ui.css" media="all" />
   <style type="text/css">
     body {
       padding-top: 60px;
@@ -21,9 +21,9 @@
           <li class="dropdown supervisor">
             <a href="#supervisor" class="dropdown-toggle">Supervisor</a>
             <ul class="dropdown-menu">
-              <li><a href="#supervisor">CSR Overview</a></li>
-              <li><a href="#supervisor/csr-detail">CSR Detail</a></li>
+              <li><a href="#supervisor">Team Overview</a></li>
               <li><a href="#supervisor/team-detail">Team Detail</a></li>
+              <li><a href="#supervisor/csr-detail">CSR Detail</a></li>
             </ul>
           </li>
           <li class="dropdown manager">
@@ -194,16 +194,14 @@
     </div>
   </script>
   <script id="supervisor-dashboard-tpl" type="text/html">
-    <h2>CSR Overview <small>(Team Agresta)</small>
+    <h2>Team Overview <small>(Team Agresta)</small>
       {{> filter}}
     </h2>
     <div class="row">
       <div class="span6 team-overview">
-        <h3>Team Overview <small>(Team Agresta)</small></h3>
         <div class="row pie-charts"></div>
       </div>
-      <div class="span10 performance-detail">
-        <h3>Performance Detail <small>(Standard Goal vs Team Agresta)</small></h3>
+      <div class="span9 offset1 performance-detail">
         <div class="row">
           <div class="bar-charts"></div>
         </div>
@@ -253,7 +251,7 @@
         </div>
       </div>
     </div>
-  </script>
+  </script>  
   <script id="exec-dashboard-tpl" type="text/html">
     <h2>Exec Overview {{ business }}</h2>
     <div class="row">
@@ -715,7 +713,7 @@
       </thead>
       <tbody>
         <tr>
-          <td>Brittney Briggs</td>
+          <td><a href="#supervisor/csr-detail">Brittney Briggs</a></td>
           <td class="below">88%</td>
           <td class="achieved">95%</td>
           <td class="achieved">90%</td>
@@ -727,7 +725,7 @@
           <td class="below">78%</td>
         </tr>
         <tr>
-          <td>Harold Matthews</td>
+          <td><a href="#supervisor/csr-detail">Harold Matthews</a></td>
           <td class="below">88%</td>
           <td class="below">70%</td>
           <td class="achieved">90%</td>
@@ -739,7 +737,7 @@
           <td class="below">78%</td>
         </tr>
         <tr>
-          <td>Jenai Brownlee</td>
+          <td><a href="#supervisor/csr-detail">Jenai Brownlee</a></td>
           <td class="below">88%</td>
           <td class="achieved">95%</td>
           <td class="achieved">90%</td>
@@ -751,7 +749,7 @@
           <td class="achieved">90%</td>
         </tr>
         <tr>
-          <td>James Martin</td>
+          <td><a href="#supervisor/csr-detail">James Martin</a></td>
           <td class="achieved">90%</td>
           <td class="danger">82%</td>
           <td class="below">77%</td>
@@ -763,7 +761,7 @@
           <td class="below">78%</td>
         </tr>
         <tr>
-          <td>David Mosher</td>
+          <td><a href="#supervisor/csr-detail">David Mosher</a></td>
           <td class="below">88%</td>
           <td class="achieved">95%</td>
           <td class="achieved">90%</td>
@@ -780,29 +778,29 @@
   <script id="team-filter-partial" type="text/javascript">
     <div class="filters pull-right">
       <select><option>Team Agresta</option></select>
+      <input type="text" class="datepicker small" placeholder="From Date">
+      <small>to</small>
+      <input type="text" class="datepicker small" placeholder="To Date">
+      <small>or</small>
       <select id="filter-performance">
-        <option>Dec 21, 2011</option>
-        <option>Dec 20, 2011</option>
-        <option>Dec 19, 2011</option>
-        <option>Dec 18, 2011</option>
-        <option>Dec 17, 2011</option>
-        <option>Dec 16, 2011</option>
-        <option>Dec 15, 2011</option>
-        <option>Dec 14, 2011</option>
+        <option>Yesterday</option>
+        <option>Previous Week</option>
+        <option>Previous Month</option>
+        <option>Month to Date</option>
       </select>
     </div>
   </script>
   <script id="filter-partial" type="text/html">
     <div class="filters pull-right">
+      <input type="text" class="datepicker small" placeholder="From Date">
+      <small>to</small>
+      <input type="text" class="datepicker small" placeholder="To Date">
+      <small>or</small>
       <select id="filter-performance">
-        <option>Dec 21, 2011</option>
-        <option>Dec 20, 2011</option>
-        <option>Dec 19, 2011</option>
-        <option>Dec 18, 2011</option>
-        <option>Dec 17, 2011</option>
-        <option>Dec 16, 2011</option>
-        <option>Dec 15, 2011</option>
-        <option>Dec 14, 2011</option>
+        <option>Yesterday</option>      
+        <option>Previous Week</option>
+        <option>Previous Month</option>
+        <option>Month to Date</option>
       </select>
     </div>
   </script>
@@ -868,6 +866,7 @@
   
   <!-- Libs -->
   <script type="text/javascript" src="../scripts/lib/jquery.js"></script>
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js"></script>
   <script type="text/javascript" src="../scripts/lib/highcharts.js"></script>
   <script type="text/javascript" src="../scripts/lib/underscore.js"></script>
   <script type="text/javascript" src="../scripts/lib/underscore.string.min.js"></script>  

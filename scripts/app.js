@@ -6,6 +6,10 @@
   
   CC.bind("rendered", function() {
     $(".tabs").tabs();
+    $( ".datepicker" ).datepicker({
+      changeMonth: true,
+      changeYear: true
+		});
   });
   
   CC.bind("navigated", function(navItem) {

@@ -285,15 +285,15 @@
   CC.V.CSRModal = Backbone.View.extend({
     el: "#csr-numbers-aggregate",
     events: {
-      'click .detail-view' : 'jumpToTeamDetail'
+      'click .detail-view' : 'jumpToCsrDetail'
     },
     initialize: function(options) {
       this.$(".dynamic").attr("class", "dynamic " + options.className.toLowerCase());
       $(this.el).modal({show:true, backdrop: true});
     },
-    jumpToTeamDetail: function() {
+    jumpToCsrDetail: function() {
       $(this.el).modal("hide");
-      Backbone.history.navigate("supervisor/team-detail", true);
+      Backbone.history.navigate("supervisor/csr-detail", true);
     }
   });
   
