@@ -10,7 +10,8 @@
       changeMonth: true,
       changeYear: true
 		});
-		$(".find-calls").click(function() {
+		$(".find-calls").click(function(e) {
+		  e.preventDefault();
 		  new CC.V.FindCallsModal();
 		});
   });

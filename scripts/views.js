@@ -58,9 +58,9 @@
       this.$(".line-graphs").prepend(new CC.V.LineChart({
         className: "line-chart span8",
         title: "Call Flow",
-        xAxis: { categories: ['G', 'E', 'D', 'A', 'A', 'C'] },
+        xAxis: { categories: ['G', 'E', 'D', 'A', 'C'] },
         yAxis: { title: { text: '%' } },
-        series: [{ name: "Brittney Briggs", data: [15, 58, 54, 72, 64, 93]}, { name: "Ideal", data: [10, 20, 25, 35, 55, 95]}]
+        series: [{ name: "Brittney Briggs", data: [15, 58, 54, 72, 93]}, { name: "Ideal", data: [10, 20, 25, 55, 95]}]
       }).render());
       
       // fcr

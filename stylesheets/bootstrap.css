@@ -2425,11 +2425,6 @@ em {
 .modal {
   display: none;
 }
-#find-calls-modal {
-  width: 1175px;
-  top: 40%;
-  left: 25%;
-}
 #team-numbers-aggregate {
   width: 650px;
 }
