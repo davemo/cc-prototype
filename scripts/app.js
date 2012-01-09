@@ -25,5 +25,7 @@
   Handlebars.registerPartial("team-filter", $("#team-filter-partial").html());
   Handlebars.registerPartial("agent-filter", $("#agent-filter-partial").html());
   Handlebars.registerPartial("csr-rca-filter", $("#csr-rca-filter-partial").html());
+  Handlebars.registerPartial("manager-filter", $("#mgr-filter-partial").html());
+  
   
 })(jQuery);

@@ -214,7 +214,7 @@
   </script>
   <script id="manager-dashboard-tpl" type="text/html">
     <h2>Site Overview
-      {{> team-filter}}
+      {{> manager-filter}}
     </h2>
     <div class="row">
       <div class="span6 team-overview">
@@ -236,12 +236,6 @@
                 <td>80%</td>
                 <td>82%</td>
                 <td>85%</td>
-              </tr>
-              <tr>
-                <td>Power Sports</td>
-                <td>88%</td>
-                <td>80%</td>
-                <td>84%</td>
               </tr>
             </tbody>
           </table>
@@ -701,6 +695,31 @@
     <div class="filters pull-right">
       <small>10 Days Back From</small>
       <input type="text" class="datepicker mini" placeholder="Select Date">
+    </div>
+  </script>
+  <script id="mgr-filter-partial" type="text/javascript">
+    <div class="filters pull-right">
+      <select id="filter-line-of-business" class="small">
+        <option>Titan</option>
+        <option>Commercial</option>
+        <option>Power Sports</option>
+      </select>
+      <select id="filter-call-type" class="small">
+        <option>Billing Calls</option>      
+        <option>Help Desk Calls</option>
+        <option>Customer Service Calls</option>
+      </select>
+      <select class="small"><option>All Teams</option><option>Team Agresta</option></select>
+      <small>From</small>
+      <select id="filter-performance" class="small">
+        <option>Yesterday</option>      
+        <option>Previous Week</option>
+        <option>Month to Date</option>
+      </select>
+      <small>or</small>
+      <input type="text" class="datepicker mini" placeholder="From">
+      <small>to</small>
+      <input type="text" class="datepicker mini" placeholder="To">
     </div>
   </script>
   <script id="agent-filter-partial" type="text/html">
