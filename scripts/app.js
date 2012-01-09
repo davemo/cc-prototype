@@ -23,5 +23,6 @@
   
   Handlebars.registerPartial("filter", $("#filter-partial").html());
   Handlebars.registerPartial("team-filter", $("#team-filter-partial").html());
+  Handlebars.registerPartial("agent-filter", $("#agent-filter-partial").html());
   
 })(jQuery);
