@@ -2433,3 +2433,8 @@ em {
 #team-numbers-aggregate {
   width: 650px;
 }
+.highlighted {
+  background-color: #999 !important;
+  font-weight: bold;
+  color: white;
+}
