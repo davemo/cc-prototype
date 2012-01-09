@@ -5,7 +5,7 @@
     routes: {
       'agent' : 'agent',
       'supervisor' : 'supervisor',
-      'supervisor/csr-detail' : 'csrDetail',
+      'supervisor/csr-rca' : 'csrRCA',
       'supervisor/team-detail' : 'teamDetail',      
       'supervisor/prescriptions' : 'sprescriptions',
       'supervisor/analytics' : 'sanalytics',      
@@ -53,7 +53,7 @@
       CC.trigger("navigated", "manager");
     },
     
-    csrDetail: function() {
+    csrRCA: function() {
       new CC.V.CSRDetail({ model: new CC.M.Agent() });
       CC.trigger("navigated", "supervisor");      
     },

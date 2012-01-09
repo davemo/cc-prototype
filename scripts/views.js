@@ -312,7 +312,7 @@
     jumpToCsrDetail: function(e) {
       e.preventDefault();
       $(this.el).modal("hide");
-      Backbone.history.navigate("supervisor/csr-detail", true);
+      Backbone.history.navigate("supervisor/csr-rca", true);
     }
   });
   
