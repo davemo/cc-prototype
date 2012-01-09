@@ -27,10 +27,12 @@
       new CC.V.Analytics();
       CC.trigger("navigated", "supervisor");
     },
+    
     manalytics: function() {
       new CC.V.Analytics();
       CC.trigger("navigated", "manager");
     },
+    
     eanalytics: function() {
       new CC.V.Analytics();
       CC.trigger("navigated", "executive");

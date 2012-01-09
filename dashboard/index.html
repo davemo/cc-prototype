@@ -742,8 +742,750 @@
     
   </script>
   <script id="analytics-tpl" type="text/html">
-    <h2>Analytics</h2>
-    <p>Coming Soon!</p>
+    <h2>
+      Analytics
+      {{>filter}}
+    </h2>
+    
+    <h3>Advanced Filters</h3>
+    
+    <select>
+      <option>All Sites</option>
+      <option>Cleveland</option>
+      <option>Gainesville</option>
+      <option>Des Moines</option>
+    </select>
+    <select>
+      <option>All Business Units</option>
+      <option>Titan</option>
+      <option>Power Sports</option>
+      <option>Commercial</option>
+    </select>
+    <select>
+      <option>All Supervisors</option>
+      <option>Geddy Lee</option>
+      <option>Axel Rose</option>
+      <option>Jim Cuddy</option>
+      <option>Gordon Downie</option>
+    </select>
+    
+    <h3>Stats</h3>
+    <ul class="tabs">
+      <li class="active"><a href="#call-handling">Call Handling</a></li>
+      <li><a href="#business-process">Business Process</a></li>
+      <li><a href="#efficiency">Efficiency</a></li>
+      <li><a href="#qa">Quality Assurance</a></li>
+    </ul>
+  
+    <div class="tab-content">
+      <div class="tab-pane active" id="call-handling">
+        <table class="zebra-striped">
+          <thead>
+            <tr>
+              <th rowspan="2">Billing</th>
+              <th>CALLS</th>
+              <th>FCR</th>
+              <th>HDL</th>
+              <th>CAP %</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>CALL BACK</td>
+              <td>4%</td>
+              <td>60%</td>
+              <td>6:10</td>
+              <td>44%</td>
+            </tr>
+            <tr>
+              <td>PREMIUM</td>
+              <td>5%</td>
+              <td>67%</td>
+              <td>0:24</td>
+              <td>40%</td>
+            </tr>
+            <tr>
+              <td>ENDORSEMENTS</td>
+              <td>8%</td>
+              <td>75%</td>
+              <td>8:14</td>
+              <td>15%</td>
+            </tr>
+            <tr>
+              <td>VIN #</td>
+              <td>3%</td>
+              <td>75%</td>
+              <td>8:02</td>
+              <td>34%</td>
+            </tr>
+            <tr>
+              <td>PROCESSING</td>
+              <td>3%</td>
+              <td>75%</td>
+              <td>6:02</td>
+              <td>29%</td>
+            </tr>
+            <tr>
+              <td>VEHICLE</td>
+              <td>9%</td>
+              <td>69%</td>
+              <td>3:34</td>
+              <td>25%</td>
+            </tr>
+            <tr>
+              <td>VERIFICATION</td>
+              <td>7%</td>
+              <td>64%</td>
+              <td>4:59</td>
+              <td>29%</td>
+            </tr>
+            <tr>
+              <td>RENEWAL</td>
+              <td>4%</td>
+              <td>78%</td>
+              <td>5:33</td>
+              <td>1%</td>
+            </tr>
+            <tr>
+              <td>FOLLOW UP</td>
+              <td>1%</td>
+              <td>99%</td>
+              <td>9:34</td>
+              <td>45%</td>
+            </tr>
+            <tr>
+              <td>DEDUCTIBLES</td>
+              <td>3%</td>
+              <td>44%</td>
+              <td>3:52</td>
+              <td>32%</td>
+            </tr>
+            <tr>
+              <td>INSTALLMENTS</td>
+              <td>4%</td>
+              <td>76%</td>
+              <td>1:22</td>
+              <td>16%</td>
+            </tr>
+            <tr>
+              <td>ID CARDS</td>
+              <td>11%</td>
+              <td>39%</td>
+              <td>4:29</td>
+              <td>99%</td>
+            </tr>
+            <tr>
+              <td>AGENCY</td>
+              <td>4%</td>
+              <td>80%</td>
+              <td>4:25</td>
+              <td>68%</td>
+            </tr>
+            <tr>
+              <td>FORMS &amp; REPORTS</td>
+              <td>80%</td>
+              <td>92%</td>
+              <td>4:25</td>
+              <td>51%</td>
+            </tr>
+            <tr>
+              <td>PAYMENT</td>
+              <td>55%</td>
+              <td>82%</td>
+              <td>5:08</td>
+              <td>33%</td>
+            </tr>
+            <tr>
+              <td>TAKES</td>
+              <td>17%</td>
+              <td>83%</td>
+              <td>6:24</td>
+              <td>61%</td>
+            </tr>
+            <tr>
+              <td>INSUFFICIENT FUNDS</td>
+               <td>80%</td>
+               <td>92%</td>
+               <td>4:25</td>
+               <td>51%</td>
+            </tr>
+            <tr>
+              <td>MAKING PAYMENT</td>
+              <td>17%</td>
+              <td>83%</td>
+              <td>6:24</td>
+              <td>61%</td>
+            </tr>
+            <tr>
+              <td>EFT</td>
+              <td>4%</td>
+              <td>76%</td>
+              <td>1:22</td>
+              <td>16%</td>
+            </tr>
+            <tr>
+              <td>CANCELS</td>
+              <td>80%</td>
+              <td>92%</td>
+              <td>4:25</td>
+              <td>51%</td>
+            </tr>
+            <tr>
+              <td>LAPSE OF COVERAGE</td>
+              <td>4%</td>
+              <td>76%</td>
+              <td>1:22</td>
+              <td>16%</td>
+            </tr>
+            <tr>
+              <td>CONFIRMATION</td>
+              <td>4%</td>
+              <td>60%</td>
+              <td>6:10</td>
+              <td>44%</td>
+            </tr>
+            <tr>
+              <td>E-SIGN</td>
+              <td>80%</td>
+              <td>92%</td>
+              <td>4:25</td>
+              <td>51%</td>
+            </tr>
+            <tr>
+              <td>ACTIVATE</td>
+              <td>80%</td>
+              <td>92%</td>
+              <td>4:25</td>
+              <td>51%</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="tab-pane" id="business-process">
+        <table class="zebra-striped">
+          <thead>
+            <tr>
+              <th rowspan="2">Billing</th>
+              <th>CALLS</th>
+              <th>FCR</th>
+              <th>HDL</th>
+              <th>CAP %</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>ACTIVATE / REINSTATE</td>
+              <td>4%</td>
+              <td>60%</td>
+              <td>6:10</td>
+              <td>44%</td>
+            </tr>
+            <tr>
+              <td>AGENCY</td>
+              <td>5%</td>
+              <td>67%</td>
+              <td>0:24</td>
+              <td>40%</td>
+            </tr>
+            <tr>
+              <td>CANCELS</td>
+              <td>8%</td>
+              <td>75%</td>
+              <td>8:14</td>
+              <td>15%</td>
+            </tr>
+            <tr>
+              <td>CLAIMS</td>
+              <td>3%</td>
+              <td>75%</td>
+              <td>8:02</td>
+              <td>34%</td>
+            </tr>
+            <tr>
+              <td>COMMERCIAL</td>
+              <td>3%</td>
+              <td>75%</td>
+              <td>6:02</td>
+              <td>29%</td>
+            </tr>
+            <tr>
+              <td>CONFIRMATION</td>
+              <td>9%</td>
+              <td>69%</td>
+              <td>3:34</td>
+              <td>25%</td>
+            </tr>
+            <tr>
+              <td>DEDUCTIBLES</td>
+              <td>7%</td>
+              <td>64%</td>
+              <td>4:59</td>
+              <td>29%</td>
+            </tr>
+            <tr>
+              <td>DRIVER INFORMATION</td>
+              <td>4%</td>
+              <td>78%</td>
+              <td>5:33</td>
+              <td>1%</td>
+            </tr>
+            <tr>
+              <td>E-SIGN</td>
+              <td>1%</td>
+              <td>99%</td>
+              <td>9:34</td>
+              <td>45%</td>
+            </tr>
+            <tr>
+              <td>ENDORSEMENTS</td>
+              <td>3%</td>
+              <td>44%</td>
+              <td>3:52</td>
+              <td>32%</td>
+            </tr>
+            <tr>
+              <td>EXCEPTIONS</td>
+              <td>4%</td>
+              <td>76%</td>
+              <td>1:22</td>
+              <td>16%</td>
+            </tr>
+            <tr>
+              <td>FARM</td>
+              <td>11%</td>
+              <td>39%</td>
+              <td>4:29</td>
+              <td>99%</td>
+            </tr>
+            <tr>
+              <td>FOLLOW UP</td>
+              <td>4%</td>
+              <td>80%</td>
+              <td>4:25</td>
+              <td>68%</td>
+            </tr>
+            <tr>
+              <td>IN CARDS</td>
+              <td>80%</td>
+              <td>92%</td>
+              <td>4:25</td>
+              <td>51%</td>
+            </tr>
+            <tr>
+              <td>LAPSE OF COVERAGE</td>
+              <td>55%</td>
+              <td>82%</td>
+              <td>5:08</td>
+              <td>33%</td>
+            </tr>
+            <tr>
+              <td>PAYMENT</td>
+              <td>17%</td>
+              <td>83%</td>
+              <td>6:24</td>
+              <td>61%</td>
+            </tr>
+            <tr>
+              <td>POLICE DEPARTMENT</td>
+               <td>80%</td>
+               <td>92%</td>
+               <td>4:25</td>
+               <td>51%</td>
+            </tr>
+            <tr>
+              <td>PREMIUM</td>
+              <td>17%</td>
+              <td>83%</td>
+              <td>6:24</td>
+              <td>61%</td>
+            </tr>
+            <tr>
+              <td>PROCESSING</td>
+              <td>4%</td>
+              <td>76%</td>
+              <td>1:22</td>
+              <td>16%</td>
+            </tr>
+            <tr>
+              <td>RENEWAL</td>
+              <td>80%</td>
+              <td>92%</td>
+              <td>4:25</td>
+              <td>51%</td>
+            </tr>
+            <tr>
+              <td>VEHICLE</td>
+              <td>4%</td>
+              <td>76%</td>
+              <td>1:22</td>
+              <td>16%</td>
+            </tr>
+            <tr>
+              <td>VERIFICATION</td>
+              <td>4%</td>
+              <td>60%</td>
+              <td>6:10</td>
+              <td>44%</td>
+            </tr>
+            <tr>
+              <td>CLAIMS</td>
+              <td>80%</td>
+              <td>92%</td>
+              <td>4:25</td>
+              <td>51%</td>
+            </tr>
+            <tr>
+              <td>SUSPENDED</td>
+              <td>80%</td>
+              <td>92%</td>
+              <td>4:25</td>
+              <td>51%</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="tab-pane" id="efficiency">
+        <table class="zebra-striped">
+          <thead>
+            <tr>
+              <th rowspan="2">Billing</th>
+              <th>HDI</th>
+              <th>CAP</th>
+              <th>CAP %</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>STATE FARM</td>
+              <td>60%</td>
+              <td>6:10</td>
+              <td>44%</td>
+            </tr>
+            <tr>
+              <td>CONTACT BANK</td>
+              <td>67%</td>
+              <td>0:24</td>
+              <td>40%</td>
+            </tr>
+            <tr>
+              <td>LIABILITY</td>
+              <td>75%</td>
+              <td>8:14</td>
+              <td>15%</td>
+            </tr>
+            <tr>
+              <td>PRO RATED</td>
+              <td>75%</td>
+              <td>8:02</td>
+              <td>34%</td>
+            </tr>
+            <tr>
+              <td>ADD VEHICLE</td>
+              <td>75%</td>
+              <td>6:02</td>
+              <td>29%</td>
+            </tr>
+            <tr>
+              <td>I DONT KNOW</td>
+              <td>69%</td>
+              <td>3:34</td>
+              <td>25%</td>
+            </tr>
+            <tr>
+              <td>SUSPENDED LICENSE</td>
+              <td>64%</td>
+              <td>4:59</td>
+              <td>29%</td>
+            </tr>
+            <tr>
+              <td>ALL STATE</td>
+              <td>78%</td>
+              <td>5:33</td>
+              <td>1%</td>
+            </tr>
+            <tr>
+              <td>VIOLATIONS</td>
+              <td>99%</td>
+              <td>9:34</td>
+              <td>45%</td>
+            </tr>
+            <tr>
+              <td>RETURN OF PREMIUM</td>
+              <td>44%</td>
+              <td>3:52</td>
+              <td>32%</td>
+            </tr>
+            <tr>
+              <td>DISCOUNTS</td>
+              <td>76%</td>
+              <td>1:22</td>
+              <td>16%</td>
+            </tr>
+            <tr>
+              <td>REPLACED VEHICLE</td>
+              <td>39%</td>
+              <td>4:29</td>
+              <td>99%</td>
+            </tr>
+            <tr>
+              <td>DRIVER INFORMATION</td>
+              <td>80%</td>
+              <td>4:25</td>
+              <td>68%</td>
+            </tr>
+            <tr>
+              <td>DRIVERS LICENSE</td>
+              <td>92%</td>
+              <td>4:25</td>
+              <td>51%</td>
+            </tr>
+            <tr>
+              <td>SR22</td>
+              <td>82%</td>
+              <td>5:08</td>
+              <td>33%</td>
+            </tr>
+            <tr>
+              <td>PREMIUM</td>
+              <td>83%</td>
+              <td>6:24</td>
+              <td>61%</td>
+            </tr>
+            <tr>
+              <td>MOTOR VEHICLE REPORTS</td>
+               <td>92%</td>
+               <td>4:25</td>
+               <td>51%</td>
+            </tr>
+            <tr>
+              <td>COMPETITION ALERT</td>
+              <td>83%</td>
+              <td>6:24</td>
+              <td>61%</td>
+            </tr>
+            <tr>
+              <td>CANCELLATION NOTICE</td>
+              <td>76%</td>
+              <td>1:22</td>
+              <td>16%</td>
+            </tr>
+            <tr>
+              <td>PASSWORDS</td>
+              <td>92%</td>
+              <td>4:25</td>
+              <td>51%</td>
+            </tr>
+            <tr>
+              <td>PROGRESSIVE</td>
+              <td>76%</td>
+              <td>1:22</td>
+              <td>16%</td>
+            </tr>
+            <tr>
+              <td>ENDORSEMENTS</td>
+              <td>60%</td>
+              <td>6:10</td>
+              <td>44%</td>
+            </tr>
+            <tr>
+              <td>CLAIMS</td>
+              <td>92%</td>
+              <td>4:25</td>
+              <td>51%</td>
+            </tr>
+            <tr>
+              <td>INSTALLMENTS</td>
+              <td>92%</td>
+              <td>4:25</td>
+              <td>51%</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="tab-pane" id="qa">
+        <table class="zebra-striped">
+          <thead>
+            <tr>
+              <th rowspan="2">Billing</th>
+              <th>CALLS</th>
+              <th>FCR</th>
+              <th>HDL</th>
+              <th>CAP %</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>ACTIVATE / REINSTATE</td>
+              <td>4%</td>
+              <td>60%</td>
+              <td>6:10</td>
+              <td>44%</td>
+            </tr>
+            <tr>
+              <td>AGENCY</td>
+              <td>5%</td>
+              <td>67%</td>
+              <td>0:24</td>
+              <td>40%</td>
+            </tr>
+            <tr>
+              <td>CANCELS</td>
+              <td>8%</td>
+              <td>75%</td>
+              <td>8:14</td>
+              <td>15%</td>
+            </tr>
+            <tr>
+              <td>CLAIMS</td>
+              <td>3%</td>
+              <td>75%</td>
+              <td>8:02</td>
+              <td>34%</td>
+            </tr>
+            <tr>
+              <td>COMMERCIAL</td>
+              <td>3%</td>
+              <td>75%</td>
+              <td>6:02</td>
+              <td>29%</td>
+            </tr>
+            <tr>
+              <td>CONFIRMATION</td>
+              <td>9%</td>
+              <td>69%</td>
+              <td>3:34</td>
+              <td>25%</td>
+            </tr>
+            <tr>
+              <td>DEDUCTIBLES</td>
+              <td>7%</td>
+              <td>64%</td>
+              <td>4:59</td>
+              <td>29%</td>
+            </tr>
+            <tr>
+              <td>DRIVER INFORMATION</td>
+              <td>4%</td>
+              <td>78%</td>
+              <td>5:33</td>
+              <td>1%</td>
+            </tr>
+            <tr>
+              <td>E-SIGN</td>
+              <td>1%</td>
+              <td>99%</td>
+              <td>9:34</td>
+              <td>45%</td>
+            </tr>
+            <tr>
+              <td>ENDORSEMENTS</td>
+              <td>3%</td>
+              <td>44%</td>
+              <td>3:52</td>
+              <td>32%</td>
+            </tr>
+            <tr>
+              <td>EXCEPTIONS</td>
+              <td>4%</td>
+              <td>76%</td>
+              <td>1:22</td>
+              <td>16%</td>
+            </tr>
+            <tr>
+              <td>FARM</td>
+              <td>11%</td>
+              <td>39%</td>
+              <td>4:29</td>
+              <td>99%</td>
+            </tr>
+            <tr>
+              <td>FOLLOW UP</td>
+              <td>4%</td>
+              <td>80%</td>
+              <td>4:25</td>
+              <td>68%</td>
+            </tr>
+            <tr>
+              <td>IN CARDS</td>
+              <td>80%</td>
+              <td>92%</td>
+              <td>4:25</td>
+              <td>51%</td>
+            </tr>
+            <tr>
+              <td>LAPSE OF COVERAGE</td>
+              <td>55%</td>
+              <td>82%</td>
+              <td>5:08</td>
+              <td>33%</td>
+            </tr>
+            <tr>
+              <td>PAYMENT</td>
+              <td>17%</td>
+              <td>83%</td>
+              <td>6:24</td>
+              <td>61%</td>
+            </tr>
+            <tr>
+              <td>POLICE DEPARTMENT</td>
+               <td>80%</td>
+               <td>92%</td>
+               <td>4:25</td>
+               <td>51%</td>
+            </tr>
+            <tr>
+              <td>PREMIUM</td>
+              <td>17%</td>
+              <td>83%</td>
+              <td>6:24</td>
+              <td>61%</td>
+            </tr>
+            <tr>
+              <td>PROCESSING</td>
+              <td>4%</td>
+              <td>76%</td>
+              <td>1:22</td>
+              <td>16%</td>
+            </tr>
+            <tr>
+              <td>RENEWAL</td>
+              <td>80%</td>
+              <td>92%</td>
+              <td>4:25</td>
+              <td>51%</td>
+            </tr>
+            <tr>
+              <td>VEHICLE</td>
+              <td>4%</td>
+              <td>76%</td>
+              <td>1:22</td>
+              <td>16%</td>
+            </tr>
+            <tr>
+              <td>VERIFICATION</td>
+              <td>4%</td>
+              <td>60%</td>
+              <td>6:10</td>
+              <td>44%</td>
+            </tr>
+            <tr>
+              <td>CLAIMS</td>
+              <td>80%</td>
+              <td>92%</td>
+              <td>4:25</td>
+              <td>51%</td>
+            </tr>
+            <tr>
+              <td>SUSPENDED</td>
+              <td>80%</td>
+              <td>92%</td>
+              <td>4:25</td>
+              <td>51%</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
   </script>
   
   <div class="modal" id="team-numbers-aggregate">
@@ -884,7 +1626,7 @@
       <h3>Find Calls</h3>
     </div>
     <div class="modal-body">
-      <p><span class="label notice">Note</span>	This will provide table contain tag information and link to recording to play calls.</p>
+      <img src="../img/find-calls.png" alt="Find Calls">
     </div>
   </div>
   

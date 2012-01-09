@@ -293,7 +293,8 @@
     initialize: function(options) {
       $(this.el).modal({show:true, backdrop: true});
     },
-    jumpToTeamDetail: function() {
+    jumpToTeamDetail: function(e) {
+      e.preventDefault();
       $(this.el).modal("hide");
       Backbone.history.navigate("manager/team-detail", true);
     }
@@ -308,7 +309,8 @@
       this.$(".dynamic").attr("class", "dynamic " + options.className.toLowerCase());
       $(this.el).modal({show:true, backdrop: true});
     },
-    jumpToCsrDetail: function() {
+    jumpToCsrDetail: function(e) {
+      e.preventDefault();
       $(this.el).modal("hide");
       Backbone.history.navigate("supervisor/csr-detail", true);
     }
