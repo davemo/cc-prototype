@@ -660,36 +660,52 @@
   </script>
   <script id="team-filter-partial" type="text/javascript">
     <div class="filters pull-right">
-      <select><option>All Teams</option><option>Team Agresta</option></select>
+      <select id="filter-call-type" class="medium">
+        <option>Billing Calls</option>      
+        <option>Help Desk Calls</option>
+        <option>Customer Service Calls</option>
+      </select>
+      <select class="medium"><option>All Teams</option><option>Team Agresta</option></select>
+      <small>From</small>
       <input type="text" class="datepicker small" placeholder="From">
       <small>to</small>
       <input type="text" class="datepicker small" placeholder="To">
       <small>or</small>
-      <select id="filter-performance">
-        <option>Yesterday</option>
+      <select id="filter-performance" class="medium">
+        <option>Yesterday</option>      
         <option>Previous Week</option>
-        <option>Previous Month</option>
         <option>Month to Date</option>
       </select>
     </div>
   </script>
   <script id="filter-partial" type="text/html">
     <div class="filters pull-right">
+      <select id="filter-call-type" class="medium">
+        <option>Billing Calls</option>      
+        <option>Help Desk Calls</option>
+        <option>Customer Service Calls</option>
+      </select>
+      <small>From</small>
       <input type="text" class="datepicker small" placeholder="From">
       <small>to</small>
       <input type="text" class="datepicker small" placeholder="To">
       <small>or</small>
-      <select id="filter-performance">
+      <select id="filter-performance" class="medium">
         <option>Yesterday</option>      
         <option>Previous Week</option>
-        <option>Previous Month</option>
         <option>Month to Date</option>
       </select>
     </div>
   </script>
   <script id="agent-filter-partial" type="text/javascript">
     <div class="filters pull-right">
-      <select id="filter-performance">
+      <select id="filter-call-type" class="medium">
+        <option>Billing Calls</option>      
+        <option>Help Desk Calls</option>
+        <option>Customer Service Calls</option>
+      </select>
+      <small>From</small>
+      <select id="filter-performance" class="medium">
         <option>Yesterday</option>      
         <option>Previous Week</option>
         <option>Month to Date</option>
