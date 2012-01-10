@@ -278,42 +278,30 @@
     }
   });
   
-  CC.V.FindCallsModal = Backbone.View.extend({
-    el: "#find-calls-modal",
+  CC.V.Modal = Backbone.View.extend({
     initialize: function() {
       $(this.el).modal({show:true, backdrop: true});
     }
   });
   
-  CC.V.TeamModal = Backbone.View.extend({
-    el: "#team-numbers-aggregate",
+  CC.V.DynamicHighlightModal = Backbone.View.extend({
     events: {
-      'click .detail-view' : 'jumpToTeamDetail'
-    },
-    initialize: function(options) {
-      $(this.el).modal({show:true, backdrop: true});
-    },
-    jumpToTeamDetail: function(e) {
-      e.preventDefault();
-      $(this.el).modal("hide");
-      Backbone.history.navigate("manager/team-detail", true);
-    }
-  });
-  
-  CC.V.CSRModal = Backbone.View.extend({
-    el: "#csr-numbers-aggregate",
-    events: {
-      'click .detail-view' : 'jumpToCsrDetail'
+      'click .detail-view' : 'jumpToDetail'
     },
     initialize: function(options) {
       this.$(".dynamic").attr("class", "dynamic " + options.className.toLowerCase());
       $(this.el).modal({show:true, backdrop: true});
     },
-    jumpToCsrDetail: function(e) {
+    jumpToDetail: function(e) {
       e.preventDefault();
       $(this.el).modal("hide");
-      Backbone.history.navigate("supervisor/csr-rca", true);
+      Backbone.history.navigate(this.navPath, true);
     }
   });
+  
+  CC.V.QACalloutModal = CC.V.Modal.extend({ el: "#qa-modal" });
+  CC.V.FindCallsModal = CC.V.Modal.extend({ el: "#find-calls-modal" });  
+  CC.V.TeamModal = CC.V.DynamicHighlightModal.extend({ el: "#team-numbers-aggregate", navPath: "manager/team-detail" });  
+  CC.V.CSRModal = CC.V.DynamicHighlightModal.extend({ el: "#csr-numbers-aggregate", navPath: "supervisor/csr-rca" });
   
 })(jQuery);

@@ -14,6 +14,10 @@
 		  e.preventDefault();
 		  new CC.V.FindCallsModal();
 		});
+		$(".qa-callout").click(function(e) {
+		  e.preventDefault();
+		  new CC.V.QACalloutModal();
+		});
   });
   
   CC.bind("navigated", function(navItem) {

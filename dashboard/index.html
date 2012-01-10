@@ -512,7 +512,7 @@
           <td>Geddy Lee</td>
           <td class="below">88%</td>
           <td class="achieved">95%</td>
-          <td class="achieved">90%</td>
+          <td class="achieved"><a href="#" class="qa-callout">90%</a></td>
           <td class="below">6:55</td>
           <td class="achieved">3:49</td>
           <td class="below">1:47</td>
@@ -525,7 +525,7 @@
           <td>Axel Rose</td>
           <td class="below">88%</td>
           <td class="below">70%</td>
-          <td class="achieved">90%</td>
+          <td class="achieved"><a href="#" class="qa-callout">90%</a></td>
           <td class="below">6:55</td>
           <td class="achieved">3:49</td>
           <td class="danger">2:47</td>
@@ -538,7 +538,7 @@
           <td>Jim Cuddy</td>
           <td class="below">88%</td>
           <td class="achieved">95%</td>
-          <td class="achieved">90%</td>
+          <td class="achieved"><a href="#" class="qa-callout">90%</a></td>
           <td class="below">6:55</td>
           <td class="below">3:49</td>
           <td class="below">1:47</td>
@@ -551,7 +551,7 @@
           <td>Gordon Downie</td>
           <td class="achieved">90%</td>
           <td class="danger">82%</td>
-          <td class="below">77%</td>
+          <td class="below"><a href="#" class="qa-callout">77%</a></td>
           <td class="below">6:55</td>
           <td class="achieved">3:49</td>
           <td class="below">1:47</td>
@@ -588,7 +588,7 @@
           <td><a href="#supervisor/csr-rca">Brittney Briggs</a></td>
           <td class="below">88%</td>
           <td class="achieved">95%</td>
-          <td class="achieved">90%</td>
+          <td class="achieved"><a href="#" class="qa-callout">90%</a></td>
           <td class="below">6:55</td>
           <td class="achieved">3:49</td>
           <td class="below">1:47</td>
@@ -601,7 +601,7 @@
           <td><a href="#supervisor/csr-rca">Harold Matthews</a></td>
           <td class="below">88%</td>
           <td class="below">70%</td>
-          <td class="achieved">90%</td>
+          <td class="achieved"><a href="#" class="qa-callout">90%</a></td>
           <td class="below">6:55</td>
           <td class="achieved">3:49</td>
           <td class="danger">2:47</td>
@@ -614,7 +614,7 @@
           <td><a href="#supervisor/csr-rca">Jenai Brownlee</a></td>
           <td class="below">88%</td>
           <td class="achieved">95%</td>
-          <td class="achieved">90%</td>
+          <td class="achieved"><a href="#" class="qa-callout">90%</a></td>
           <td class="below">6:55</td>
           <td class="below">3:49</td>
           <td class="below">1:47</td>
@@ -627,7 +627,7 @@
           <td><a href="#supervisor/csr-rca">James Martin</a></td>
           <td class="achieved">90%</td>
           <td class="danger">82%</td>
-          <td class="below">77%</td>
+          <td class="below"><a href="#" class="qa-callout">77%</a></td>
           <td class="below">6:55</td>
           <td class="achieved">3:49</td>
           <td class="below">1:47</td>
@@ -640,7 +640,7 @@
           <td><a href="#supervisor/csr-rca">David Mosher</a></td>
           <td class="below">88%</td>
           <td class="achieved">95%</td>
-          <td class="achieved">90%</td>
+          <td class="achieved"><a href="#" class="qa-callout">90%</a></td>
           <td class="achieved">6:55</td>
           <td class="achieved">3:49</td>
           <td class="achieved">1:47</td>
@@ -697,7 +697,7 @@
       <input type="text" class="datepicker mini" placeholder="Select Date">
     </div>
   </script>
-  <script id="mgr-filter-partial" type="text/javascript">
+  <script id="mgr-filter-partial" type="text/html">
     <div class="filters pull-right">
       <select id="filter-line-of-business" class="small">
         <option>Titan</option>
@@ -1742,7 +1742,6 @@
         <thead>
           <tr>
             <th>Supervisor</th>
-            <th>CSR</th>
             <th>FCR</th>
             <th>CSAT</th>
             <th>QA Score</th>
@@ -1767,6 +1766,7 @@
             <td class="achieved">90%</td>
             <td class="below">78%</td>
             <td class="below">75%</td>
+            <td class="achieved">90%</td>
           </tr>
           <tr>
             <td><a href="#" class="detail-view">Axel Rose</a></td>
@@ -1779,6 +1779,7 @@
             <td class="danger">88%</td>
             <td class="achieved">94%</td>            
             <td class="danger">80%</td>
+            <td class="achieved">0%</td>
           </tr>
           <tr>
             <td><a href="#" class="detail-view">Jim Cuddy</a></td>
@@ -1791,6 +1792,7 @@
             <td class="danger">88%</td>
             <td class="achieved">94%</td>
             <td class="achieved">95%</td>
+            <td class="danger">88%</td>
           </tr>
           <tr>
             <td><a href="#" class="detail-view">Gordon Downie</a></td>
@@ -1803,6 +1805,7 @@
             <td class="danger">88%</td>
             <td class="achieved">94%</td>
             <td class="danger">82%</td>
+            <td class="achieved">94%</td>            
           </tr>
         </tbody>
       </table>
@@ -1878,6 +1881,58 @@
     <div class="modal-body">
       <img src="../img/find-calls.png" alt="Find Calls">
     </div>
+  </div>
+  <div class="modal" id="qa-modal">
+    <div class="modal-header">
+      <a href="#" class="close">&times;</a>
+      <h3>Quality Assurance Score Detail</h3>
+    </div>
+    <div class="modal-body">
+      <table class="zebra-striped">
+        <thead>
+          <tr>
+            <th>Call ID</th>
+            <th>Greet</th>
+            <th>Engage</th>
+            <th>Discover</th>
+            <th>Act 1</th>
+            <th>Act 2</th>
+            <th>Close</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>86107</td>
+            <td>4</td>
+            <td>12</td>
+            <td>3</td>
+            <td>0</td>
+            <td>4</td>
+            <td>7</td>
+          </tr>
+          <tr>
+            <td>86108</td>
+            <td>6</td>
+            <td>6</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>6</td>
+          </tr>
+          <tr>
+            <td>86109</td>
+            <td>7</td>
+            <td>3</td>
+            <td>0</td>
+            <td>0</td>
+            <td>4</td>
+            <td>3</td>
+          </tr>
+        </tbody>
+      </table>
+      
+    </div>
+    
   </div>
   
   <!-- Libs -->
