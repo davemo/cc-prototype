@@ -1,0 +1,1978 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8">
+  <title>MyCallCenterApp</title>
+  <link rel="stylesheet" type="text/css" href="../stylesheets/bootstrap.css" media="all" />
+  <link rel="stylesheet" type="text/css" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/ui-darkness/jquery-ui.css" media="all" />
+  <style type="text/css">
+    body {
+      padding-top: 60px;
+    }
+  </style>
+</head>
+<body>
+  <div class="topbar">
+    <div class="topbar-inner">
+      <div class="container-fluid">
+        <a class="brand" href="#">MyCallCenterApp</a>
+        <ul class="nav">
+          <li class="active agent"><a href="#agent">Agent</a></li>
+          <li class="dropdown supervisor">
+            <a href="#supervisor" class="dropdown-toggle">Supervisor</a>
+            <ul class="dropdown-menu">
+              <li><a href="#supervisor">Team Overview</a></li>
+              <li><a href="#supervisor/team-detail">Team Detail</a></li>
+              <li><a href="#supervisor/csr-rca">CSR Root Cause Analysis</a></li>
+              <li><a href="#supervisor/prescriptions">Prescriptions</a></li>
+              <li><a href="#supervisor/analytics">Analytics</a></li>                            
+            </ul>
+          </li>
+          <li class="dropdown manager">
+            <a href="#manager" class="dropdown-toggle">Manager</a>
+            <ul class="dropdown-menu">
+              <li><a href="#manager">Site Overview</a></li>
+              <li><a href="#manager/team-detail">Team Detail</a></li>
+              <li><a href="#manager/prescriptions">Prescriptions</a></li>                            
+              <li><a href="#manager/analytics">Analytics</a></li>                                          
+            </ul>
+          </li>
+          <li class="dropdown executive">
+            <a href="#exec" class="dropdown-toggle">Executive</a>
+            <ul class="dropdown-menu">
+              <li><a href="#exec/titan">Titan</a></li>
+              <li><a href="#exec/powersports">Power Sports</a></li>
+              <li><a href="#exec/commercial">Commercial</a></li>
+              <li><a href="#exec/analytics">Analytics</a></li>                                          
+            </ul>
+          </li>
+        </ul>
+        <p class="pull-right">Logged in as <a href="#">Brittany Briggs</a></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div id="view"></div>
+    <footer>
+      <p>&copy; 2012</p>
+    </footer>
+  </div> <!-- /container -->
+  
+  <!-- Templates -->
+  <script id="agent-dashboard-tpl" type="text/html">
+    <h2>Brittney Briggs
+      {{> agent-filter}}
+    </h2>
+    <div class="row profile">
+      <div class="no-padding-well profile-photo span4">
+        <img src="../img/briggs.jpg" alt="Brittney Briggs">
+      </div>
+      <div class="span12">
+        <table class="bordered-table">
+          <thead>
+            <tr>
+              <th>FCR</th>
+              <th>CSAT</th>
+              <th>QA</th>
+              <th>AHT</th>
+              <th>TLK</th>
+              <th>ACW</th>
+              <th>XFER%</th>
+              <th>CPLH</th>
+              <th>ADH</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="achieved">79%</td>
+              <td class="below">20%</td>
+              <td class="achieved">84%</td>
+              <td class="danger">7:00</td>
+              <td class="achieved">3:40</td>
+              <td class="below">1:30</td>
+              <td class="danger">15%</td>
+              <td class="danger">3.4</td>
+              <td class="below">80%</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="row">
+      <div class="span9 main-graph">
+        <h3>Performance Detail</h3>
+        <div class="row">
+          <div class="bar-charts"></div>
+        </div>
+      </div>
+      <div class="span7 goals">
+        <h3>Profile Details</h3>
+        <ul class="tabs">
+          <li class="active"><a href="#info">Info</a></li>
+          <li><a href="#goals">Goals</a></li>
+          <li><a href="#hours">Hours</a></li>
+          <li><a href="#opportunities">Opportunities</a></li>
+          <li><a href="#rx">Rx</a></li>
+        </ul>
+      
+        <div class="tab-content">
+          <div class="tab-pane" id="goals">
+            <table class="zebra-striped">
+              <tbody>
+                <tr>
+                  <td>88%</td><td title="First Call Resolution">FCR</td>
+                </tr>
+                <tr>
+                  <td>90%</td><td title="Quality Assurance">QA Score</td>
+                </tr>
+                <tr>
+                  <td>95%</td><td title="Customer Satisfaction">CSAT</td>
+                </tr>  
+                <tr>
+                  <td>6:55</td><td title="Average Handle Time">AHT</td>
+                </tr>  
+                <tr>
+                  <td>3:49</td><td title="Time Talking with a Customer">TLK</td>
+                </tr>
+                <tr>
+                  <td>1:47</td><td title="Work done after a call">ACW</td>
+                </tr>
+                <tr>
+                  <td>15.7</td><td title="% of calls transferred">XFER%</td>
+                </tr>
+                <tr>
+                  <td>7.27</td><td title="Calls Per Hour">CPLH</td>
+                </tr>
+                <tr>
+                  <td>78%</td><td title="Hours Worked / Hours Scheduled">ADH</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="tab-pane" id="hours">
+            <p><em>Hours worked to date:</em> 31.2</p>
+            <p><em>Hours scheduled:</em>40</p>
+            <br>
+            <p><em>Actual net salary to date: </em>$585.00</p>
+            <p><em>Potential net salary:</em>$750.00</p>
+          </div>
+          <div class="tab-pane" id="opportunities">
+            <table class="zebra-striped">
+              <thead>
+                <tr>
+                  <th>Indicator</th>
+                  <th>% of calls</th>
+                  <th>FCR</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Insufficient Funds</td><td>13%</td><td>75%</td>
+                </tr>
+                <tr>
+                  <td>Deductibles</td><td>12%</td><td>83%</td>
+                </tr>  
+                <tr>
+                  <td>Renewal</td><td>13%</td><td>67%</td>
+                </tr>
+                <tr>
+                  <td>EFT</td><td>10%</td><td>60%</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="tab-pane" id="rx">
+            <p>Brittany has had consistently high QA scores.</p>
+            <p>She is working to improve her first call resolution (FCR) score so that customers dont need to call back to resolve issues that she is the first to handle.</p>
+          </div>
+          <div class="tab-pane active" id="info">
+            <p><em>Hire Date:</em> 2/24/2010</p>
+            <p><em>Skill Level:</em> Intermediate</p>
+            <p><em>Supervisor: </em> <a href="#">Susan Agresta</a></p>
+            <p><em>Schedule hours:</em> 8:00am - 5:00pm</p>
+            <p><em>Schedule days:</em>Monday - Friday</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </script>
+  <script id="supervisor-dashboard-tpl" type="text/html">
+    <h2>Team Overview <small>(Team Agresta)</small>
+      {{> filter}}
+    </h2>
+    <div class="row">
+      <div class="span6 team-overview">
+        <div class="row pie-charts"></div>
+      </div>
+      <div class="span9 offset1 performance-detail">
+        <div class="row">
+          <div class="bar-charts"></div>
+        </div>
+      </div>
+    </div>
+  </script>
+  <script id="manager-dashboard-tpl" type="text/html">
+    <h2>Site Overview
+      {{> manager-filter}}
+    </h2>
+    <div class="row">
+      <div class="span6 team-overview">
+        <div class="row pie-charts"></div>
+        <div class="service-level bumper">
+          <h3>Service Level</h3>
+          <table>
+            <thead>
+              <tr>
+                <th></th>
+                <th>Previous Day</th>
+                <th>Week-to-Date</th>
+                <th>Month-to-Date</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Titan</td>
+                <td>80%</td>
+                <td>82%</td>
+                <td>85%</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="span9 offset1 performance-detail">
+        <div class="row">
+          <div class="bar-charts"></div>
+        </div>
+      </div>
+    </div>
+  </script>  
+  <script id="exec-dashboard-tpl" type="text/html">
+    <h2>
+      Exec Overview {{ business }}
+      {{> filter}}
+    </h2>
+    <div class="row">
+      <div class="span-one-third">
+        <h3>Gainesvile</h3>
+        <table>
+          <tbody>
+            <tr>
+              <td>Service Level</td>
+              <td class="achieved">85%</td>
+            </tr>
+            <tr>
+              <td>FCR</td>
+              <td class="danger">89%</td>
+            </tr>
+            <tr>
+              <td>CSAT</td>
+              <td class="danger">75%</td>
+            </tr>
+            <tr>
+              <td>QA Score</td>
+              <td class="danger">85%</td>
+            </tr>
+            <tr>
+              <td>AHT</td>
+              <td class="achieved">5</td>
+            </tr>
+            <tr>
+              <td>TLK</td>
+              <td class="achieved">3:49</td>
+            </tr>
+            <tr>
+              <td>ACW</td>
+              <td class="danger">1:47</td>
+            </tr>
+            <tr>
+              <td>XFER%</td>
+              <td class="achieved">12%</td>
+            </tr>
+            <tr>
+              <td>CPLH</td>
+              <td class="achieved">7</td>
+            </tr>
+            <tr>
+              <td>ADH</td>
+              <td class="achieved">92%</td>
+            </tr>
+            <tr>
+              <td>
+                <a href="#exec/analytics" class="btn success">Analytics</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="span-one-third">
+        <h3>Cleveland</h3>
+         <table>
+            <tbody>
+              <tr>
+                <td>Service Level</td>
+                <td class="achieved">80%</td>
+              </tr>
+              <tr>
+                <td>FCR</td>
+                <td class="achieved">90%</td>
+              </tr>
+              <tr>
+                <td>CSAT</td>
+                <td class="danger">75%</td>
+              </tr>
+              <tr>
+                <td>QA Score</td>
+                <td class="danger">85%</td>
+              </tr>
+              <tr>
+                <td>AHT</td>
+                <td class="achieved">6</td>
+              </tr>
+              <tr>
+                <td>TLK</td>
+                <td class="achieved">3:49</td>
+              </tr>
+              <tr>
+                <td>ACW</td>
+                <td class="danger">1:47</td>
+              </tr>
+              <tr>
+                <td>XFER%</td>
+                <td class="danger">14%</td>
+              </tr>
+              <tr>
+                <td>CPLH</td>
+                <td class="danger">6</td>
+              </tr>
+              <tr>
+                <td>ADH</td>
+                <td class="achieved">90%</td>
+              </tr>
+              <tr>
+                <td>
+                  <a href="#exec/analytics" class="btn success">Analytics</a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+      </div>
+      <div class="span-one-third">
+        <h3>Des Moines</h3>
+        <table>
+          <tbody>
+            <tr>
+              <td>Service Level</td>
+              <td class="below">70%</td>
+            </tr>
+            <tr>
+              <td>FCR</td>
+              <td class="danger">87%</td>
+            </tr>
+            <tr>
+              <td>CSAT</td>
+              <td class="achieved">85%</td>
+            </tr>
+            <tr>
+              <td>QA Score</td>
+              <td class="achieved">90%</td>
+            </tr>
+            <tr>
+              <td>AHT</td>
+              <td class="danger">7</td>
+            </tr>
+            <tr>
+              <td>TLK</td>
+              <td class="achieved">3:49</td>
+            </tr>
+            <tr>
+              <td>ACW</td>
+              <td class="danger">1:47</td>
+            </tr>
+            <tr>
+              <td>XFER%</td>
+              <td class="achieved">12%</td>
+            </tr>
+            <tr>
+              <td>CPLH</td>
+              <td class="below">2</td>
+            </tr>
+            <tr>
+              <td>ADH</td>
+              <td class="danger">85%</td>
+            </tr>
+            <tr>
+              <td>
+                <a href="#exec/analytics" class="btn success">Analytics</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  
+  </script>
+  <script id="csr-detail-tpl" type="text/html">
+    <h2>CSR Root Cause Analysis <small>(Brittney Briggs)</small>
+      {{> csr-rca-filter}}
+    </h2>
+    
+    <ul class="tabs">
+      <li class="active"><a href="#fcr">FCR</a></li>
+      <li><a href="#csat">CSAT</a></li>
+      <li><a href="#qa">QA</a></li>
+      <li><a href="#aht">AHT</a></li>
+      <li><a href="#tlk">TLK</a></li>
+      <li><a href="#acw">ACW</a></li>
+      <li><a href="#xfer">XFER%</a></li>
+      <li><a href="#cplh">CPLH</a></li>
+      <li><a href="#adh">ADH</a></li>
+    </ul>
+    
+    <h3>FCR <span class="achieved-t">88%</span>&nbsp;<small>(First Call Resolution)</small></h3>
+
+    <div class="tab-content">
+      <div class="tab-pane active" id="fcr">
+        <div class="row csr-detail">
+          <div class="span16">
+            <div class="row line-graphs">
+              <div class="span8">
+                <table class="zebra-striped">
+                  <thead>
+                    <tr>
+                      <th>Indicator</th>
+                      <th>% of calls</th>
+                      <th>FCR</th>
+                      <th></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Insufficient Funds</td>
+                      <td>13%</td>
+                      <td>75%</td>
+                      <td><a href="#" class="find-calls">Find Calls</a></td>
+                    </tr>
+                    <tr>
+                      <td>Deductibles</td>
+                      <td>12%</td>
+                      <td>83%</td>
+                      <td><a href="#" class="find-calls">Find Calls</a></td>
+                    </tr>
+                    <tr>
+                      <td>Renewal</td>
+                      <td>13%</td>
+                      <td>67%</td>
+                      <td><a href="#" class="find-calls">Find Calls</a></td>
+                    </tr>
+                    <tr>
+                      <td>EFT</td>
+                      <td>10%</td>
+                      <td>60%</td>
+                      <td><a href="#" class="find-calls">Find Calls</a></td>
+                    </tr>
+                    <tr>
+                      <td colspan="4">
+                        <a href="#" class="btn find-calls">View White Calls</a>
+                        <a href="#" class="btn success find-calls">View Green Calls</a>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </script>
+  <script id="team-detail-manager-tpl" type="text/html">
+    <h2>Team Detail <small>(Manager)</small>
+      {{> filter}}
+    </h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Supervisor</th>
+          <th>FCR</th>
+          <th>CSAT</th>
+          <th>QA Score</th>
+          <th>AHT</th>
+          <th>TLK</th>
+          <th>ACW</th>
+          <th>XFER%</th>
+          <th>CPLH</th>
+          <th>ADH</th>
+          <th>COACH</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Geddy Lee</td>
+          <td class="below">88%</td>
+          <td class="achieved">95%</td>
+          <td class="achieved"><a href="#" class="qa-callout">90%</a></td>
+          <td class="below">6:55</td>
+          <td class="achieved">3:49</td>
+          <td class="below">1:47</td>
+          <td class="danger">15.7</td>
+          <td class="achieved">7.27</td>
+          <td class="below">78%</td>
+          <td class="achieved"><a href="#">85%</a></td>
+        </tr>
+        <tr>
+          <td>Axel Rose</td>
+          <td class="below">88%</td>
+          <td class="below">70%</td>
+          <td class="achieved"><a href="#" class="qa-callout">90%</a></td>
+          <td class="below">6:55</td>
+          <td class="achieved">3:49</td>
+          <td class="danger">2:47</td>
+          <td class="danger">15.7</td>
+          <td class="danger">3.27</td>
+          <td class="below">78%</td>
+          <td class="below"><a href="#">60%</a></td>          
+        </tr>
+        <tr>
+          <td>Jim Cuddy</td>
+          <td class="below">88%</td>
+          <td class="achieved">95%</td>
+          <td class="achieved"><a href="#" class="qa-callout">90%</a></td>
+          <td class="below">6:55</td>
+          <td class="below">3:49</td>
+          <td class="below">1:47</td>
+          <td class="danger">15.7</td>
+          <td class="danger">7.27</td>
+          <td class="achieved">90%</td>
+          <td class="achieved"><a href="#">90%</a></td>          
+        </tr>
+        <tr>
+          <td>Gordon Downie</td>
+          <td class="achieved">90%</td>
+          <td class="danger">82%</td>
+          <td class="below"><a href="#" class="qa-callout">77%</a></td>
+          <td class="below">6:55</td>
+          <td class="achieved">3:49</td>
+          <td class="below">1:47</td>
+          <td class="achieved">3.7</td>
+          <td class="achieved">7.27</td>
+          <td class="below">78%</td>
+          <td class="danger"><a href="#">80%</a></td>          
+        </tr>
+      </tbody>
+    </table>
+  </script>
+  <script id="team-detail-tpl" type="text/html">
+    <h2>Team Detail <small>(Team Agresta)</small>
+      {{> filter}}
+    </h2>
+    <table>
+      <thead>
+        <tr>
+          <th>CSR</th>
+          <th>FCR</th>
+          <th>In Calls</th>
+          <th>Out Calls</th>
+          <th>CSAT</th>
+          <th>QA Score</th>
+          <th>AHT</th>
+          <th>TLK</th>
+          <th>ACW</th>
+          <th>XFER%</th>
+          <th>CPLH</th>
+          <th>ADH</th>
+          <th>COACH</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><a href="#supervisor/csr-rca">Brittney Briggs</a></td>
+          <td class="below">88%</td>
+          <td>50</td>
+          <td>12</td>
+          <td class="achieved">95%</td>
+          <td class="achieved"><a href="#" class="qa-callout">90%</a></td>
+          <td class="below">6:55</td>
+          <td class="achieved">3:49</td>
+          <td class="below">1:47</td>
+          <td class="danger">15.7</td>
+          <td class="achieved">7.27</td>
+          <td class="below">78%</td>
+          <td class="achieved">95%</td>
+        </tr>
+        <tr>
+          <td><a href="#supervisor/csr-rca">Harold Matthews</a></td>
+          <td class="below">88%</td>
+          <td>13</td>
+          <td>43</td>
+          <td class="below">70%</td>
+          <td class="achieved"><a href="#" class="qa-callout">90%</a></td>
+          <td class="below">6:55</td>
+          <td class="achieved">3:49</td>
+          <td class="danger">2:47</td>
+          <td class="danger">15.7</td>
+          <td class="danger">3.27</td>
+          <td class="below">78%</td>
+          <td class="danger">82%</td>          
+        </tr>
+        <tr>
+          <td><a href="#supervisor/csr-rca">Jenai Brownlee</a></td>
+          <td class="below">88%</td>
+          <td>93</td>
+          <td>43</td>
+          <td class="achieved">95%</td>
+          <td class="achieved"><a href="#" class="qa-callout">90%</a></td>
+          <td class="below">6:55</td>
+          <td class="below">3:49</td>
+          <td class="below">1:47</td>
+          <td class="danger">15.7</td>
+          <td class="danger">7.27</td>
+          <td class="achieved">90%</td>
+          <td class="below">65%</td>          
+        </tr>
+        <tr>
+          <td><a href="#supervisor/csr-rca">James Martin</a></td>
+          <td class="achieved">90%</td>
+          <td>34</td>
+          <td>2</td>
+          <td class="danger">82%</td>
+          <td class="below"><a href="#" class="qa-callout">77%</a></td>
+          <td class="below">6:55</td>
+          <td class="achieved">3:49</td>
+          <td class="below">1:47</td>
+          <td class="achieved">3.7</td>
+          <td class="achieved">7.27</td>
+          <td class="below">78%</td>
+          <td class="danger">83%</td>          
+        </tr>
+        <tr>
+          <td><a href="#supervisor/csr-rca">David Mosher</a></td>
+          <td class="below">88%</td>
+          <td>3</td>
+          <td>1</td>
+          <td class="achieved">95%</td>
+          <td class="achieved"><a href="#" class="qa-callout">90%</a></td>
+          <td class="achieved">6:55</td>
+          <td class="achieved">3:49</td>
+          <td class="achieved">1:47</td>
+          <td class="danger">15.7</td>
+          <td class="achieved">7.27</td>
+          <td class="achieved">78%</td>
+          <td class="achieved">90%</td>          
+        </tr>
+      </tbody>
+    </table>
+  </script>
+  <script id="team-filter-partial" type="text/html">
+    <div class="filters pull-right">
+      <select id="filter-call-type" class="small">
+        <option>Billing Calls</option>      
+        <option>Help Desk Calls</option>
+        <option>Customer Service Calls</option>
+      </select>
+      <select class="small"><option>All Teams</option><option>Team Agresta</option></select>
+      <small>From</small>
+      <select id="filter-performance" class="small">
+        <option>Yesterday</option>      
+        <option>Previous Week</option>
+        <option>Month to Date</option>
+      </select>
+      <small>or</small>
+      <input type="text" class="datepicker mini" placeholder="From">
+      <small>to</small>
+      <input type="text" class="datepicker mini" placeholder="To">
+    </div>
+  </script>
+  <script id="filter-partial" type="text/html">
+    <div class="filters pull-right">
+      <select id="filter-call-type" class="small">
+        <option>Billing Calls</option>      
+        <option>Help Desk Calls</option>
+        <option>Customer Service Calls</option>
+      </select>
+      <small>From</small>
+      <select id="filter-performance" class="small">
+        <option>Yesterday</option>      
+        <option>Previous Week</option>
+        <option>Month to Date</option>
+      </select>
+      <small>or</small>
+      <input type="text" class="datepicker mini" placeholder="From">
+      <small>to</small>
+      <input type="text" class="datepicker mini" placeholder="To">
+    </div>
+  </script>
+  <script id="csr-rca-filter-partial" type="text/html">
+    <div class="filters pull-right">
+      <small>10 Days Back From</small>
+      <input type="text" class="datepicker mini" placeholder="Select Date">
+    </div>
+  </script>
+  <script id="mgr-filter-partial" type="text/html">
+    <div class="filters pull-right">
+      <select id="filter-line-of-business" class="small">
+        <option>Titan</option>
+        <option>Commercial</option>
+        <option>Power Sports</option>
+      </select>
+      <select id="filter-call-type" class="small">
+        <option>Billing Calls</option>      
+        <option>Help Desk Calls</option>
+        <option>Customer Service Calls</option>
+      </select>
+      <select class="small"><option>All Teams</option><option>Team Agresta</option></select>
+      <small>From</small>
+      <select id="filter-performance" class="small">
+        <option>Yesterday</option>      
+        <option>Previous Week</option>
+        <option>Month to Date</option>
+      </select>
+      <small>or</small>
+      <input type="text" class="datepicker mini" placeholder="From">
+      <small>to</small>
+      <input type="text" class="datepicker mini" placeholder="To">
+    </div>
+  </script>
+  <script id="agent-filter-partial" type="text/html">
+    <div class="filters pull-right">
+      <select id="filter-call-type" class="small">
+        <option>Billing Calls</option>      
+        <option>Help Desk Calls</option>
+        <option>Customer Service Calls</option>
+      </select>
+      <small>From</small>
+      <select id="filter-performance" class="small">
+        <option>Yesterday</option>      
+        <option>Previous Week</option>
+        <option>Month to Date</option>
+      </select>
+    </div>
+  </script>
+  <script id="prescriptions-tpl" type="text/html">
+    <h2>
+      Prescriptions
+      {{> filter}}
+    </h2>
+    
+    <ul class="tabs">
+      <li class="active"><a href="#my-prescriptions">My Prescriptions</a></li>
+      <li><a href="#new-prescription">Create Prescription</a></li>
+    </ul>
+
+    <div class="tab-content">
+      <div class="tab-pane active" id="my-prescriptions">
+        <table class="zebra-striped">
+          <thead>
+            <tr>
+              <th>CSR</th>
+              <th>Created</th>
+              <th>Updated</th>
+              <th>Follow Up</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td >Brittney Briggs</td>
+              <td>Dec 1, 2012</td>
+              <td>...</td>
+              <td class="below">No</td>
+            </tr>
+            <tr>
+              <td>Amber Napier</td>
+              <td>Dec 3, 2012</td>
+              <td>Dec 9, 2012</td>
+              <td class="achieved">Yes</td>
+            </tr>
+            <tr>
+              <td class="highlighted">James Martin</td>
+              <td class="highlighted">Dec 5, 2012</td>
+              <td class="highlighted">Dec 9, 2012</td>
+              <td class="achieved highlighted">Yes</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <hr />
+        <h4>Prescription: James Martin</h4>
+        <img src="../img/titan-logo.png" alt="">
+        <br />
+        <div class="row">
+          <div class="span6">
+            <p><strong>Associate Name</strong>: James Martin</p>
+            <p><strong>Supervisor Name</strong>: Chris Derikart</p>
+          </div>
+          <div class="span6">
+            <p><strong>Date</strong>: December 5, 2012</p>
+            <p><strong>Areas of Opportunity</strong>: ACW is currently at 1:46 over the past three weeks</p>
+          </div>
+          <div class="span12">
+            <p><span class="label notice">SMART Metric Goal</span> 45 second ACW by Jan 25, 2013</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="span-one-third">
+            <table>
+              <thead>
+                <tr>
+                  <th colspan="3">GEDAAC Section Breakdown</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>GREET</td>
+                  <td class="achieved">92%</td>
+                </tr>
+                <tr>
+                  <td>ENGAGE</td>
+                  <td class="below">75%</td>
+                </tr>
+                <tr>
+                  <td>DISCOVER</td>
+                  <td class="achieved">90%</td>
+                </tr>
+                <tr>
+                  <td>ACT 1</td>
+                  <td class="danger">78%s</td>
+                </tr>
+                <tr>
+                  <td>ACT 2</td>
+                  <td class="achieved">89%</td>
+                </tr>
+                <tr>
+                  <td>CLOSE</td>
+                  <td class="below">48%</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="span-one-third">
+            <table>
+              <thead>
+                <tr>
+                  <th colspan="3">Fly-By Checklist for ACW</th>
+                </tr>
+                <tr>
+                  <th>Date</th>
+                  <th>Time</th>
+                  <th>Notes</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>12/8</td>
+                  <td>1:44</td>
+                  <td>Stop Outbound calls in ACW</td>
+                </tr>
+                <tr>
+                  <td>12/9</td>
+                  <td>2:59</td>
+                  <td>Dont take lunch in ACW</td>
+                </tr>
+                <tr>
+                  <td>12/10</td>
+                  <td>off</td>
+                  <td>CSR Off</td>
+                </tr>
+                <tr>
+                  <td>12/11</td>
+                  <td>off</td>
+                  <td>Sup Off</td>
+                </tr>
+                <tr>
+                  <td>12/12</td>
+                  <td>x</td>
+                  <td>No Fly-By done</td>
+                </tr>
+                <tr>
+                  <td>12/13</td>
+                  <td>1:47</td>
+                  <td>Take notes during call</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="span-one-third">
+             <table>
+                <thead>
+                  <tr>
+                    <th colspan="2">Current Performance</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>GEDAAC</td>
+                    <td class="achieved">Green/Yellow</td>
+                  </tr>
+                  <tr>
+                    <td>AHT</td>
+                    <td>7:12</td>
+                  </tr>
+                  <tr>
+                    <td>ACW</td>
+                    <td>1:45</td>
+                  </tr>
+                  <tr>
+                    <td>Hold</td>
+                    <td>0:55</td>
+                  </tr>
+                  <tr>
+                    <td>FCR</td>
+                    <td class="achieved">89%</td>
+                  </tr>
+                  <tr>
+                    <td>XFER %</td>
+                    <td>48%</td>
+                  </tr>
+                  <tr>
+                    <td>Help Desk</td>
+                    <td>97</td>
+                  </tr>
+                  <tr>
+                    <td>Other Transfers</td>
+                    <td>128</td>
+                  </tr>
+                </tbody>
+              </table>
+          </div>
+        </div>        
+      </div>
+      <div class="tab-pane" id="new-prescription">
+        <form action="">
+          <fieldset>
+            <div class="clearfix">
+              <label for="associate">Associate Name</label>
+              <div class="input">
+                <input class="xlarge" id="associate" size="30" type="text">
+              </div>
+            </div>
+            <div class="clearfix">
+              <label for="supervisor">Supervisor Name</label>
+              <div class="input">
+                <input type="text" size="30" id="supervisor" class="xlarge" />
+              </div>
+            </div>
+            <div class="clearfix">
+              <label for="date">Date</label>
+              <div class="input">
+                <input type="date" size="30" id="date" class="xlarge" />
+              </div>
+            </div>
+            <div class="clearfix">
+              <label for="doing-well">What are you doing well?</label>
+              <div class="input">
+                <textarea class="xxlarge" id="doing-well" rows="3"></textarea>
+                <span class="help-block">
+                  Awesome things? All the things? Or just some things?
+                </span>
+              </div>
+            </div>
+            <div class="clearfix">
+              <label for="observed">Areas identified during observation</label>
+              <div class="input">
+                <textarea class="xxlarge" id="observed" rows="3"></textarea>
+                <span class="help-block">
+                  Observable things go in here.
+                </span>
+              </div>
+            </div>
+            <div class="clearfix">
+              <label for="new-prescription">New Prescription</label>
+              <div class="input">
+                <textarea class="xxlarge" id="new-prescription" rows="3"></textarea>
+                <span class="help-block">
+                  Ibuprofen? Acetominaphen?
+                </span>
+              </div>
+            </div>
+            <div class="actions">
+              <input type="submit" class="btn primary" value="Create">
+              <input type="submit" class="btn" value="Cancel">          
+            </div>
+          </fieldset>
+        </form>
+      </div>
+    </div>
+    
+    
+    
+  </script>
+  <script id="analytics-tpl" type="text/html">
+    <h2>
+      Analytics
+      {{>filter}}
+    </h2>
+    
+    <h3>Advanced Filters</h3>
+    
+    <select>
+      <option>All Sites</option>
+      <option>Cleveland</option>
+      <option>Gainesville</option>
+      <option>Des Moines</option>
+    </select>
+    <select>
+      <option>All Business Units</option>
+      <option>Titan</option>
+      <option>Power Sports</option>
+      <option>Commercial</option>
+    </select>
+    <select>
+      <option>All Supervisors</option>
+      <option>Geddy Lee</option>
+      <option>Axel Rose</option>
+      <option>Jim Cuddy</option>
+      <option>Gordon Downie</option>
+    </select>
+    
+    <h3>Stats</h3>
+    <ul class="tabs">
+      <li class="active"><a href="#call-handling">Call Handling</a></li>
+      <li><a href="#business-process">Business Process</a></li>
+      <li><a href="#efficiency">Efficiency</a></li>
+      <li><a href="#qa">Quality Assurance</a></li>
+    </ul>
+  
+    <div class="tab-content">
+      <div class="tab-pane active" id="call-handling">
+        <table class="zebra-striped">
+          <thead>
+            <tr>
+              <th rowspan="2">Billing</th>
+              <th>CALLS</th>
+              <th>FCR</th>
+              <th>HDL</th>
+              <th>CAP %</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>CALL BACK</td>
+              <td>4%</td>
+              <td>60%</td>
+              <td>6:10</td>
+              <td>44%</td>
+            </tr>
+            <tr>
+              <td>PREMIUM</td>
+              <td>5%</td>
+              <td>67%</td>
+              <td>0:24</td>
+              <td>40%</td>
+            </tr>
+            <tr>
+              <td>ENDORSEMENTS</td>
+              <td>8%</td>
+              <td>75%</td>
+              <td>8:14</td>
+              <td>15%</td>
+            </tr>
+            <tr>
+              <td>VIN #</td>
+              <td>3%</td>
+              <td>75%</td>
+              <td>8:02</td>
+              <td>34%</td>
+            </tr>
+            <tr>
+              <td>PROCESSING</td>
+              <td>3%</td>
+              <td>75%</td>
+              <td>6:02</td>
+              <td>29%</td>
+            </tr>
+            <tr>
+              <td>VEHICLE</td>
+              <td>9%</td>
+              <td>69%</td>
+              <td>3:34</td>
+              <td>25%</td>
+            </tr>
+            <tr>
+              <td>VERIFICATION</td>
+              <td>7%</td>
+              <td>64%</td>
+              <td>4:59</td>
+              <td>29%</td>
+            </tr>
+            <tr>
+              <td>RENEWAL</td>
+              <td>4%</td>
+              <td>78%</td>
+              <td>5:33</td>
+              <td>1%</td>
+            </tr>
+            <tr>
+              <td>FOLLOW UP</td>
+              <td>1%</td>
+              <td>99%</td>
+              <td>9:34</td>
+              <td>45%</td>
+            </tr>
+            <tr>
+              <td>DEDUCTIBLES</td>
+              <td>3%</td>
+              <td>44%</td>
+              <td>3:52</td>
+              <td>32%</td>
+            </tr>
+            <tr>
+              <td>INSTALLMENTS</td>
+              <td>4%</td>
+              <td>76%</td>
+              <td>1:22</td>
+              <td>16%</td>
+            </tr>
+            <tr>
+              <td>ID CARDS</td>
+              <td>11%</td>
+              <td>39%</td>
+              <td>4:29</td>
+              <td>99%</td>
+            </tr>
+            <tr>
+              <td>AGENCY</td>
+              <td>4%</td>
+              <td>80%</td>
+              <td>4:25</td>
+              <td>68%</td>
+            </tr>
+            <tr>
+              <td>FORMS &amp; REPORTS</td>
+              <td>80%</td>
+              <td>92%</td>
+              <td>4:25</td>
+              <td>51%</td>
+            </tr>
+            <tr>
+              <td>PAYMENT</td>
+              <td>55%</td>
+              <td>82%</td>
+              <td>5:08</td>
+              <td>33%</td>
+            </tr>
+            <tr>
+              <td>TAKES</td>
+              <td>17%</td>
+              <td>83%</td>
+              <td>6:24</td>
+              <td>61%</td>
+            </tr>
+            <tr>
+              <td>INSUFFICIENT FUNDS</td>
+               <td>80%</td>
+               <td>92%</td>
+               <td>4:25</td>
+               <td>51%</td>
+            </tr>
+            <tr>
+              <td>MAKING PAYMENT</td>
+              <td>17%</td>
+              <td>83%</td>
+              <td>6:24</td>
+              <td>61%</td>
+            </tr>
+            <tr>
+              <td>EFT</td>
+              <td>4%</td>
+              <td>76%</td>
+              <td>1:22</td>
+              <td>16%</td>
+            </tr>
+            <tr>
+              <td>CANCELS</td>
+              <td>80%</td>
+              <td>92%</td>
+              <td>4:25</td>
+              <td>51%</td>
+            </tr>
+            <tr>
+              <td>LAPSE OF COVERAGE</td>
+              <td>4%</td>
+              <td>76%</td>
+              <td>1:22</td>
+              <td>16%</td>
+            </tr>
+            <tr>
+              <td>CONFIRMATION</td>
+              <td>4%</td>
+              <td>60%</td>
+              <td>6:10</td>
+              <td>44%</td>
+            </tr>
+            <tr>
+              <td>E-SIGN</td>
+              <td>80%</td>
+              <td>92%</td>
+              <td>4:25</td>
+              <td>51%</td>
+            </tr>
+            <tr>
+              <td>ACTIVATE</td>
+              <td>80%</td>
+              <td>92%</td>
+              <td>4:25</td>
+              <td>51%</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="tab-pane" id="business-process">
+        <table class="zebra-striped">
+          <thead>
+            <tr>
+              <th rowspan="2">Billing</th>
+              <th>CALLS</th>
+              <th>FCR</th>
+              <th>HDL</th>
+              <th>CAP %</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>ACTIVATE / REINSTATE</td>
+              <td>4%</td>
+              <td>60%</td>
+              <td>6:10</td>
+              <td>44%</td>
+            </tr>
+            <tr>
+              <td>AGENCY</td>
+              <td>5%</td>
+              <td>67%</td>
+              <td>0:24</td>
+              <td>40%</td>
+            </tr>
+            <tr>
+              <td>CANCELS</td>
+              <td>8%</td>
+              <td>75%</td>
+              <td>8:14</td>
+              <td>15%</td>
+            </tr>
+            <tr>
+              <td>CLAIMS</td>
+              <td>3%</td>
+              <td>75%</td>
+              <td>8:02</td>
+              <td>34%</td>
+            </tr>
+            <tr>
+              <td>COMMERCIAL</td>
+              <td>3%</td>
+              <td>75%</td>
+              <td>6:02</td>
+              <td>29%</td>
+            </tr>
+            <tr>
+              <td>CONFIRMATION</td>
+              <td>9%</td>
+              <td>69%</td>
+              <td>3:34</td>
+              <td>25%</td>
+            </tr>
+            <tr>
+              <td>DEDUCTIBLES</td>
+              <td>7%</td>
+              <td>64%</td>
+              <td>4:59</td>
+              <td>29%</td>
+            </tr>
+            <tr>
+              <td>DRIVER INFORMATION</td>
+              <td>4%</td>
+              <td>78%</td>
+              <td>5:33</td>
+              <td>1%</td>
+            </tr>
+            <tr>
+              <td>E-SIGN</td>
+              <td>1%</td>
+              <td>99%</td>
+              <td>9:34</td>
+              <td>45%</td>
+            </tr>
+            <tr>
+              <td>ENDORSEMENTS</td>
+              <td>3%</td>
+              <td>44%</td>
+              <td>3:52</td>
+              <td>32%</td>
+            </tr>
+            <tr>
+              <td>EXCEPTIONS</td>
+              <td>4%</td>
+              <td>76%</td>
+              <td>1:22</td>
+              <td>16%</td>
+            </tr>
+            <tr>
+              <td>FARM</td>
+              <td>11%</td>
+              <td>39%</td>
+              <td>4:29</td>
+              <td>99%</td>
+            </tr>
+            <tr>
+              <td>FOLLOW UP</td>
+              <td>4%</td>
+              <td>80%</td>
+              <td>4:25</td>
+              <td>68%</td>
+            </tr>
+            <tr>
+              <td>IN CARDS</td>
+              <td>80%</td>
+              <td>92%</td>
+              <td>4:25</td>
+              <td>51%</td>
+            </tr>
+            <tr>
+              <td>LAPSE OF COVERAGE</td>
+              <td>55%</td>
+              <td>82%</td>
+              <td>5:08</td>
+              <td>33%</td>
+            </tr>
+            <tr>
+              <td>PAYMENT</td>
+              <td>17%</td>
+              <td>83%</td>
+              <td>6:24</td>
+              <td>61%</td>
+            </tr>
+            <tr>
+              <td>POLICE DEPARTMENT</td>
+               <td>80%</td>
+               <td>92%</td>
+               <td>4:25</td>
+               <td>51%</td>
+            </tr>
+            <tr>
+              <td>PREMIUM</td>
+              <td>17%</td>
+              <td>83%</td>
+              <td>6:24</td>
+              <td>61%</td>
+            </tr>
+            <tr>
+              <td>PROCESSING</td>
+              <td>4%</td>
+              <td>76%</td>
+              <td>1:22</td>
+              <td>16%</td>
+            </tr>
+            <tr>
+              <td>RENEWAL</td>
+              <td>80%</td>
+              <td>92%</td>
+              <td>4:25</td>
+              <td>51%</td>
+            </tr>
+            <tr>
+              <td>VEHICLE</td>
+              <td>4%</td>
+              <td>76%</td>
+              <td>1:22</td>
+              <td>16%</td>
+            </tr>
+            <tr>
+              <td>VERIFICATION</td>
+              <td>4%</td>
+              <td>60%</td>
+              <td>6:10</td>
+              <td>44%</td>
+            </tr>
+            <tr>
+              <td>CLAIMS</td>
+              <td>80%</td>
+              <td>92%</td>
+              <td>4:25</td>
+              <td>51%</td>
+            </tr>
+            <tr>
+              <td>SUSPENDED</td>
+              <td>80%</td>
+              <td>92%</td>
+              <td>4:25</td>
+              <td>51%</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="tab-pane" id="efficiency">
+        <table class="zebra-striped">
+          <thead>
+            <tr>
+              <th rowspan="2">Billing</th>
+              <th>HDI</th>
+              <th>CAP</th>
+              <th>CAP %</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>STATE FARM</td>
+              <td>60%</td>
+              <td>6:10</td>
+              <td>44%</td>
+            </tr>
+            <tr>
+              <td>CONTACT BANK</td>
+              <td>67%</td>
+              <td>0:24</td>
+              <td>40%</td>
+            </tr>
+            <tr>
+              <td>LIABILITY</td>
+              <td>75%</td>
+              <td>8:14</td>
+              <td>15%</td>
+            </tr>
+            <tr>
+              <td>PRO RATED</td>
+              <td>75%</td>
+              <td>8:02</td>
+              <td>34%</td>
+            </tr>
+            <tr>
+              <td>ADD VEHICLE</td>
+              <td>75%</td>
+              <td>6:02</td>
+              <td>29%</td>
+            </tr>
+            <tr>
+              <td>I DONT KNOW</td>
+              <td>69%</td>
+              <td>3:34</td>
+              <td>25%</td>
+            </tr>
+            <tr>
+              <td>SUSPENDED LICENSE</td>
+              <td>64%</td>
+              <td>4:59</td>
+              <td>29%</td>
+            </tr>
+            <tr>
+              <td>ALL STATE</td>
+              <td>78%</td>
+              <td>5:33</td>
+              <td>1%</td>
+            </tr>
+            <tr>
+              <td>VIOLATIONS</td>
+              <td>99%</td>
+              <td>9:34</td>
+              <td>45%</td>
+            </tr>
+            <tr>
+              <td>RETURN OF PREMIUM</td>
+              <td>44%</td>
+              <td>3:52</td>
+              <td>32%</td>
+            </tr>
+            <tr>
+              <td>DISCOUNTS</td>
+              <td>76%</td>
+              <td>1:22</td>
+              <td>16%</td>
+            </tr>
+            <tr>
+              <td>REPLACED VEHICLE</td>
+              <td>39%</td>
+              <td>4:29</td>
+              <td>99%</td>
+            </tr>
+            <tr>
+              <td>DRIVER INFORMATION</td>
+              <td>80%</td>
+              <td>4:25</td>
+              <td>68%</td>
+            </tr>
+            <tr>
+              <td>DRIVERS LICENSE</td>
+              <td>92%</td>
+              <td>4:25</td>
+              <td>51%</td>
+            </tr>
+            <tr>
+              <td>SR22</td>
+              <td>82%</td>
+              <td>5:08</td>
+              <td>33%</td>
+            </tr>
+            <tr>
+              <td>PREMIUM</td>
+              <td>83%</td>
+              <td>6:24</td>
+              <td>61%</td>
+            </tr>
+            <tr>
+              <td>MOTOR VEHICLE REPORTS</td>
+               <td>92%</td>
+               <td>4:25</td>
+               <td>51%</td>
+            </tr>
+            <tr>
+              <td>COMPETITION ALERT</td>
+              <td>83%</td>
+              <td>6:24</td>
+              <td>61%</td>
+            </tr>
+            <tr>
+              <td>CANCELLATION NOTICE</td>
+              <td>76%</td>
+              <td>1:22</td>
+              <td>16%</td>
+            </tr>
+            <tr>
+              <td>PASSWORDS</td>
+              <td>92%</td>
+              <td>4:25</td>
+              <td>51%</td>
+            </tr>
+            <tr>
+              <td>PROGRESSIVE</td>
+              <td>76%</td>
+              <td>1:22</td>
+              <td>16%</td>
+            </tr>
+            <tr>
+              <td>ENDORSEMENTS</td>
+              <td>60%</td>
+              <td>6:10</td>
+              <td>44%</td>
+            </tr>
+            <tr>
+              <td>CLAIMS</td>
+              <td>92%</td>
+              <td>4:25</td>
+              <td>51%</td>
+            </tr>
+            <tr>
+              <td>INSTALLMENTS</td>
+              <td>92%</td>
+              <td>4:25</td>
+              <td>51%</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="tab-pane" id="qa">
+        <table class="zebra-striped">
+          <thead>
+            <tr>
+              <th rowspan="2">Billing</th>
+              <th>CALLS</th>
+              <th>FCR</th>
+              <th>HDL</th>
+              <th>CAP %</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>ACTIVATE / REINSTATE</td>
+              <td>4%</td>
+              <td>60%</td>
+              <td>6:10</td>
+              <td>44%</td>
+            </tr>
+            <tr>
+              <td>AGENCY</td>
+              <td>5%</td>
+              <td>67%</td>
+              <td>0:24</td>
+              <td>40%</td>
+            </tr>
+            <tr>
+              <td>CANCELS</td>
+              <td>8%</td>
+              <td>75%</td>
+              <td>8:14</td>
+              <td>15%</td>
+            </tr>
+            <tr>
+              <td>CLAIMS</td>
+              <td>3%</td>
+              <td>75%</td>
+              <td>8:02</td>
+              <td>34%</td>
+            </tr>
+            <tr>
+              <td>COMMERCIAL</td>
+              <td>3%</td>
+              <td>75%</td>
+              <td>6:02</td>
+              <td>29%</td>
+            </tr>
+            <tr>
+              <td>CONFIRMATION</td>
+              <td>9%</td>
+              <td>69%</td>
+              <td>3:34</td>
+              <td>25%</td>
+            </tr>
+            <tr>
+              <td>DEDUCTIBLES</td>
+              <td>7%</td>
+              <td>64%</td>
+              <td>4:59</td>
+              <td>29%</td>
+            </tr>
+            <tr>
+              <td>DRIVER INFORMATION</td>
+              <td>4%</td>
+              <td>78%</td>
+              <td>5:33</td>
+              <td>1%</td>
+            </tr>
+            <tr>
+              <td>E-SIGN</td>
+              <td>1%</td>
+              <td>99%</td>
+              <td>9:34</td>
+              <td>45%</td>
+            </tr>
+            <tr>
+              <td>ENDORSEMENTS</td>
+              <td>3%</td>
+              <td>44%</td>
+              <td>3:52</td>
+              <td>32%</td>
+            </tr>
+            <tr>
+              <td>EXCEPTIONS</td>
+              <td>4%</td>
+              <td>76%</td>
+              <td>1:22</td>
+              <td>16%</td>
+            </tr>
+            <tr>
+              <td>FARM</td>
+              <td>11%</td>
+              <td>39%</td>
+              <td>4:29</td>
+              <td>99%</td>
+            </tr>
+            <tr>
+              <td>FOLLOW UP</td>
+              <td>4%</td>
+              <td>80%</td>
+              <td>4:25</td>
+              <td>68%</td>
+            </tr>
+            <tr>
+              <td>IN CARDS</td>
+              <td>80%</td>
+              <td>92%</td>
+              <td>4:25</td>
+              <td>51%</td>
+            </tr>
+            <tr>
+              <td>LAPSE OF COVERAGE</td>
+              <td>55%</td>
+              <td>82%</td>
+              <td>5:08</td>
+              <td>33%</td>
+            </tr>
+            <tr>
+              <td>PAYMENT</td>
+              <td>17%</td>
+              <td>83%</td>
+              <td>6:24</td>
+              <td>61%</td>
+            </tr>
+            <tr>
+              <td>POLICE DEPARTMENT</td>
+               <td>80%</td>
+               <td>92%</td>
+               <td>4:25</td>
+               <td>51%</td>
+            </tr>
+            <tr>
+              <td>PREMIUM</td>
+              <td>17%</td>
+              <td>83%</td>
+              <td>6:24</td>
+              <td>61%</td>
+            </tr>
+            <tr>
+              <td>PROCESSING</td>
+              <td>4%</td>
+              <td>76%</td>
+              <td>1:22</td>
+              <td>16%</td>
+            </tr>
+            <tr>
+              <td>RENEWAL</td>
+              <td>80%</td>
+              <td>92%</td>
+              <td>4:25</td>
+              <td>51%</td>
+            </tr>
+            <tr>
+              <td>VEHICLE</td>
+              <td>4%</td>
+              <td>76%</td>
+              <td>1:22</td>
+              <td>16%</td>
+            </tr>
+            <tr>
+              <td>VERIFICATION</td>
+              <td>4%</td>
+              <td>60%</td>
+              <td>6:10</td>
+              <td>44%</td>
+            </tr>
+            <tr>
+              <td>CLAIMS</td>
+              <td>80%</td>
+              <td>92%</td>
+              <td>4:25</td>
+              <td>51%</td>
+            </tr>
+            <tr>
+              <td>SUSPENDED</td>
+              <td>80%</td>
+              <td>92%</td>
+              <td>4:25</td>
+              <td>51%</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </script>
+  
+  <div class="modal" id="team-numbers-aggregate">
+    <div class="modal-header">
+      <a href="#" class="close">&times;</a>
+      <h3>Team Performance Details</h3>
+    </div>
+    <div class="modal-body">
+      <table>
+        <thead>
+          <tr>
+            <th>Supervisor</th>
+            <th>FCR</th>
+            <th>CSAT</th>
+            <th>QA Score</th>
+            <th>AHT</th>
+            <th>TLK</th>
+            <th>ACW</th>
+            <th>XFER%</th>
+            <th>CPLH</th>
+            <th>ADH</th>
+            <th>COACH</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><a href="#" class="detail-view">Geddy Lee</a></td>
+            <td class="dynamic">88%</td>
+            <td class="achieved">7.27</td>
+            <td class="below">6:55</td>
+            <td class="achieved">3:49</td>
+            <td class="below">1:47</td>
+            <td class="danger">15.7%</td>
+            <td class="achieved">90%</td>
+            <td class="below">78%</td>
+            <td class="below">75%</td>
+            <td class="achieved">90%</td>
+          </tr>
+          <tr>
+            <td><a href="#" class="detail-view">Axel Rose</a></td>
+            <td class="dynamic">88%</td>
+            <td class="achieved">7.30</td>
+            <td class="below">6:32</td>
+            <td class="achieved">4:12</td>
+            <td class="danger">1:31</td>
+            <td class="achieved">0%</td>
+            <td class="danger">88%</td>
+            <td class="achieved">94%</td>            
+            <td class="danger">80%</td>
+            <td class="achieved">0%</td>
+          </tr>
+          <tr>
+            <td><a href="#" class="detail-view">Jim Cuddy</a></td>
+            <td class="dynamic">88%</td>
+            <td class="danger">5.42</td>
+            <td class="danger">5:51</td>
+            <td class="achieved">3:51</td>
+            <td class="danger">1:31</td>
+            <td class="achieved">10%</td>
+            <td class="danger">88%</td>
+            <td class="achieved">94%</td>
+            <td class="achieved">95%</td>
+            <td class="danger">88%</td>
+          </tr>
+          <tr>
+            <td><a href="#" class="detail-view">Gordon Downie</a></td>
+            <td class="dynamic">75%</td>
+            <td class="achieved">6.99</td>
+            <td class="danger">5:51</td>
+            <td class="achieved">3:51</td>
+            <td class="danger">1:31</td>
+            <td class="danger">2%</td>
+            <td class="danger">88%</td>
+            <td class="achieved">94%</td>
+            <td class="danger">82%</td>
+            <td class="achieved">94%</td>            
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>  
+  <div class="modal" id="csr-numbers-aggregate">
+    <div class="modal-header">
+      <a href="#" class="close">&times;</a>
+      <h3>CSR Performance Details</h3>
+    </div>
+    <div class="modal-body">
+      <table>
+        <thead>
+          <tr>
+            <th>CSR</th>
+            <th>FCR</th>
+            <th>CSAT</th>
+            <th>QA Score</th>
+            <th>AHT</th>
+            <th>TLK</th>
+            <th>ACW</th>
+            <th>XFER%</th>
+            <th>CPLH</th>
+            <th>ADH</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><a href="#" class="detail-view">Briggs</a></td>
+            <td class="dynamic">88%</td>
+            <td class="below">75%</td>
+            <td class="achieved">7.27</td>
+            <td class="below">6:55</td>
+            <td class="achieved">3:49</td>
+            <td class="below">1:47</td>
+            <td class="danger">15.7%</td>
+            <td class="achieved">90%</td>
+            <td class="below">78%</td>
+          </tr>
+          <tr>
+            <td><a href="#" class="detail-view">Matthews</a></td>
+            <td class="dynamic">88%</td>
+            <td class="danger">80%</td>
+            <td class="achieved">7.30</td>
+            <td class="below">6:32</td>
+            <td class="achieved">4:12</td>
+            <td class="danger">1:31</td>
+            <td class="achieved">0%</td>
+            <td class="danger">88%</td>
+            <td class="below">85%</td>
+          </tr>
+          <tr>
+            <td><a href="#" class="detail-view">Brownlee</a></td>
+            <td class="dynamic">88%</td>
+            <td class="achieved">95%</td>
+            <td class="danger">5.42</td>
+            <td class="danger">5:51</td>
+            <td class="achieved">3:51</td>
+            <td class="danger">1:31</td>
+            <td class="achieved">10%</td>
+            <td class="danger">88%</td>
+            <td class="achieved">94%</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="modal" id="find-calls-modal">
+    <div class="modal-header">
+      <a href="#" class="close">&times;</a>
+      <h3>Find Calls</h3>
+    </div>
+    <div class="modal-body">
+      <img src="../img/find-calls.png" alt="Find Calls">
+    </div>
+  </div>
+  <div class="modal" id="qa-modal">
+    <div class="modal-header">
+      <a href="#" class="close">&times;</a>
+      <h3>Quality Assurance Score Detail</h3>
+    </div>
+    <div class="modal-body">
+      <table class="zebra-striped">
+        <thead>
+          <tr>
+            <th>Call ID</th>
+            <th>Greet</th>
+            <th>Engage</th>
+            <th>Discover</th>
+            <th>Act 1</th>
+            <th>Act 2</th>
+            <th>Close</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>86107</td>
+            <td>4</td>
+            <td>12</td>
+            <td>3</td>
+            <td>0</td>
+            <td>4</td>
+            <td>7</td>
+          </tr>
+          <tr>
+            <td>86108</td>
+            <td>6</td>
+            <td>6</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>6</td>
+          </tr>
+          <tr>
+            <td>86109</td>
+            <td>7</td>
+            <td>3</td>
+            <td>0</td>
+            <td>0</td>
+            <td>4</td>
+            <td>3</td>
+          </tr>
+        </tbody>
+      </table>
+      
+    </div>
+    
+  </div>
+  
+  <!-- Libs -->
+  <script type="text/javascript" src="../scripts/lib/jquery.js"></script>
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js"></script>
+  <script type="text/javascript" src="../scripts/lib/highcharts.js"></script>
+  <script type="text/javascript" src="../scripts/lib/underscore.js"></script>
+  <script type="text/javascript" src="../scripts/lib/underscore.string.min.js"></script>  
+  <script type="text/javascript" src="../scripts/lib/backbone.js"></script>
+  <script type="text/javascript" src="../scripts/lib/handlebars.js"></script>
+  <script type="text/javascript" src="../scripts/lib/bootstrap-modal.js"></script>  
+  <script type="text/javascript" src="../scripts/lib/bootstrap-dropdown.js"></script>
+  <script type="text/javascript" src="../scripts/lib/bootstrap-tabs.js"></script>
+  
+  <!-- App --> 
+  <script type="text/javascript" src="../scripts/data.js"></script>
+  <script type="text/javascript" src="../scripts/app.js"></script>
+  <script type="text/javascript" src="../scripts/models.js"></script>
+  <script type="text/javascript" src="../scripts/views.js"></script>
+  <script type="text/javascript" src="../scripts/router.js"></script>
+  
+  <script>
+    _.mixin(_.str.exports()); // mixin underscore.string to underscore
+    $(".topbar").dropdown();
+    Backbone.history.start();
+    if(!window.location.hash) {
+      Backbone.history.navigate('agent', true);      
+    }
+  </script>
+</body>
+</html>
